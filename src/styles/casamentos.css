@@ -237,6 +237,19 @@ body{overflow-x:hidden}
   line-height: 1.7;
 }
 
+/* ── Hover: cards de diferenciais ──────────────────────────────── */
+.scp3 { transition: background 0.3s; }
+.scp3:hover { background: #faf5ef !important; }
+
+/* ── Hover: cards de ícones (estrutura) ────────────────────────── */
+.scp5 { transition: background 0.3s; }
+.scp5:hover { background: #faf5ef !important; }
+.scp5 [data-dc-tpl="104"] { transition: background 0.3s, border-color 0.3s; }
+.scp5:hover [data-dc-tpl="104"] { background: rgba(214, 147, 16, 0.1); border-color: rgba(214, 147, 16, 0.7); }
+
+/* ── Respiro galeria → formulário ──────────────────────────────── */
+.r-galeria { background: #ffffff; padding-bottom: 80px; }
+
 /* ===== responsivo ===== */
 @media(max-width:960px){
   .r-grid3{grid-template-columns:1fr 1fr !important}

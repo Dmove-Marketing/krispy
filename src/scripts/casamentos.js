@@ -93,16 +93,16 @@
 
   // ── Testimonials carousel ──────────────────────────────────────────
   if (depTrack) {
-    // Step = one card width + gap so scrollBy lands on a snap point
-    function cardStep() {
-      const card = depTrack.firstElementChild;
-      return card ? card.offsetWidth + 20 : 320;
-    }
-
     depBtns.forEach((btn) => {
       const isPrev = btn.getAttribute('aria-label') === 'Anterior';
       btn.addEventListener('click', () => {
-        depTrack.scrollBy({ left: isPrev ? -cardStep() : cardStep(), behavior: 'smooth' });
+        const card = depTrack.firstElementChild;
+        const gap = parseFloat(getComputedStyle(depTrack).gap) || 20;
+        const step = card ? card.getBoundingClientRect().width + gap : 320;
+        depTrack.scrollTo({
+          left: depTrack.scrollLeft + (isPrev ? -step : step),
+          behavior: 'smooth',
+        });
       });
     });
   }

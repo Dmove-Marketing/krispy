@@ -1,6 +1,26 @@
 /* Estilos da página Casamentos — Krispy */
 
 *{margin:0;padding:0;box-sizing:border-box}
+
+/* Entrelinha normalizada para parágrafos e spans de corpo */
+p, .wap-form p { line-height: 1.2 !important; }
+
+/* seção números — desktop */
+@media(min-width:769px){
+  .r-stat>span:first-child{ font-size: 30px !important; }
+}
+
+/* Entrelinha consistente nos títulos */
+h1 { line-height: 1.1 !important; }
+h2 { line-height: 1.15 !important; }
+h3 { line-height: 1.2 !important; }
+
+/* Desktop — quebra de linha exatamente antes do em dourado */
+@media(min-width:769px){
+  h2 { font-size: clamp(28px, 2.8vw, 40px) !important; }
+  h2 em { display: block; }
+}
+
 html{scroll-behavior:smooth}
 body{overflow-x:hidden}
 
@@ -223,9 +243,17 @@ body{overflow-x:hidden}
 }
 @media(max-width:768px){
   h1,h2,h3,h4,h5,h6,p,span,li{text-align:center !important}
-  .r-hero{text-align:center !important}
+  .r-hero{text-align:center !important;padding-bottom:56px !important}
   .r-hero a[href]{margin-left:auto !important;margin-right:auto !important}
   .r-hero>*{align-items:center !important}
+  /* números — fonte menor no mobile */
+  .r-stat>span:first-child{font-size:28px !important}
+  /* hero mobile — título menor */
+  #topo h1{font-size:clamp(24px, 7vw, 36px) !important}
+  /* hero mobile — conteúdo na base, imagem à direita, overlay mais escuro */
+  #topo{align-items:flex-end !important}
+  #topo img{object-position:85% top !important}
+  #topo>div:nth-child(2){background:linear-gradient(to top, rgba(21,13,7,0.92) 0%, rgba(21,13,7,0.55) 55%, rgba(21,13,7,0.25) 100%) !important}
   .r-hero{padding:0 24px 56px !important}
   .r-grid2{grid-template-columns:1fr !important}
   .r-grid3{grid-template-columns:1fr !important}
@@ -252,7 +280,10 @@ body{overflow-x:hidden}
   .r-contato-info{border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08) !important}
   .r-deptrack>div{flex:0 0 86% !important;min-width:0 !important}
   .r-depbtn{display:none !important}
-  .r-footer{padding:40px 24px !important;flex-direction:column !important;text-align:center}
+  .r-footer{padding:40px 24px !important;display:flex !important;flex-direction:column !important;align-items:center !important;gap:24px !important;text-align:center !important;grid-template-columns:unset !important}
+  .r-footer>p{order:2}
+  .r-footer>a{order:1}
+  .r-footer>div{order:3}
   .r-stat{max-width:none !important;flex:1 1 100% !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.28)}
 }
 @media(max-width:480px){

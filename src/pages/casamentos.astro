@@ -290,12 +290,17 @@ import '../styles/casamentos.css';
       <img src="https://media.dmove.com.br/clients/krispy/photos/casamento-joao-e-maria_img-20240108-wa0016.webp" alt="Casamento Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
     <!-- Vídeo vertical — col 3, linhas 1-2 -->
-    <div style="grid-column: 3; grid-row: 1 / span 2; background: #2f1d13; border: 1px solid rgba(214,147,16,0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;">
-      <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">
-        <circle cx="32" cy="32" r="31" fill="none" stroke="rgba(214,147,16,0.4)" stroke-width="1.5"/>
-        <polygon points="26,20 50,32 26,44" fill="#d69310" opacity="0.7"/>
-      </svg>
-      <span style="font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(214,147,16,0.55); font-family: -apple-system, sans-serif;">Vídeo em breve</span>
+    <div style="grid-column: 3; grid-row: 1 / span 2; overflow: hidden; background: #2f1d13;">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        style="width:100%;height:100%;object-fit:cover;display:block;"
+        aria-label="Vídeo Krispy Buffet"
+      >
+        <source src="https://media.dmove.com.br/clients/krispy/videos/SaveClip.App_AQPqL_gk1AzSLwtmb2oxlJR7JTrn3t48ErfOsPAW1Ry0QQgWIa2dDXHMQ76I12sUABuRArnwjzmtdEGemXA103zxZ7677zekbNvkFg8.webm" type="video/webm" />
+      </video>
     </div>
     <div style="overflow: hidden;">
       <img src="https://media.dmove.com.br/clients/krispy/photos/casamento-joao-e-maria_img-20240108-wa0017.webp" alt="Casamento Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
@@ -314,8 +319,9 @@ import '../styles/casamentos.css';
     <div style="overflow: hidden;">
       <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-06-03_at_11.35.04_AM_(2).webp" alt="Casamento Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
-    <!-- Placeholder para próxima imagem -->
-    <div style="background: #2f1d13; border: 1px solid rgba(214,147,16,0.1);"></div>
+    <div style="overflow: hidden;">
+      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_716974734_18358493692243307_4193966492528941278_n.webp" alt="Casamento Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+    </div>
   </div>
 
   

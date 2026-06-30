@@ -206,10 +206,21 @@ import '../styles/casamentos.css';
           requestAnimationFrame(tick);
         }
 
-        requestAnimationFrame(() => {
+        function init() {
+          // retry until carousel has a real width (iOS can return 0 before layout)
+          if (!carousel.offsetWidth) {
+            requestAnimationFrame(init);
+            return;
+          }
           setWidths();
           requestAnimationFrame(tick);
-        });
+        }
+
+        if (document.readyState === 'complete') {
+          requestAnimationFrame(init);
+        } else {
+          window.addEventListener('load', () => requestAnimationFrame(init));
+        }
 
         window.addEventListener('resize', () => { setWidths(); x = 0; });
       })();

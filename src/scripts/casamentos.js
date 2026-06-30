@@ -64,30 +64,39 @@
 
   // ── Reveal on scroll ───────────────────────────────────────────────
   if ('IntersectionObserver' in window) {
+    const revealEl = (el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    };
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'none';
+          revealEl(e.target);
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.05, rootMargin: '0px 0px 60px 0px' });
 
     requestAnimationFrame(() => {
+      const hidden = [];
       document.querySelectorAll('[data-reveal]').forEach((el) => {
-        // skip elements that are already visible (above fold)
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight) {
-          el.style.opacity = '1';
-          el.style.transform = 'none';
+          revealEl(el);
           return;
         }
         el.style.opacity = '0';
         el.style.transform = 'translateY(24px)';
         el.style.transition = 'opacity .8s ease, transform .8s ease';
         io.observe(el);
+        hidden.push(el);
       });
+
+      // iOS Safari fallback: force-reveal after 5s in case observer misfires
+      if (hidden.length) {
+        setTimeout(() => hidden.forEach(revealEl), 5000);
+      }
     });
   }
 

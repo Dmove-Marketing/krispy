@@ -17,8 +17,7 @@ h3 { line-height: 1.2 !important; }
   h2 em { display: block; }
 }
 
-html{scroll-behavior:smooth}
-body{overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden}
 
 @keyframes heroZoom{to{transform:scale(1)}}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}

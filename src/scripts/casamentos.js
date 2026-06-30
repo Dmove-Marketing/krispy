@@ -102,16 +102,26 @@
 
   // ── Testimonials carousel ──────────────────────────────────────────
   if (depTrack) {
+    function smoothScroll(el, target, duration) {
+      const start = el.scrollLeft;
+      const delta = target - start;
+      const startTime = performance.now();
+      function step(now) {
+        const t = Math.min((now - startTime) / duration, 1);
+        const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        el.scrollLeft = start + delta * ease;
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
     depBtns.forEach((btn) => {
       const isPrev = btn.getAttribute('aria-label') === 'Anterior';
       btn.addEventListener('click', () => {
         const card = depTrack.firstElementChild;
         const gap = parseFloat(getComputedStyle(depTrack).gap) || 20;
         const step = card ? card.getBoundingClientRect().width + gap : 320;
-        depTrack.scrollTo({
-          left: depTrack.scrollLeft + (isPrev ? -step : step),
-          behavior: 'smooth',
-        });
+        smoothScroll(depTrack, depTrack.scrollLeft + (isPrev ? -step : step), 400);
       });
     });
   }

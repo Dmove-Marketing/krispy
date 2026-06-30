@@ -242,6 +242,12 @@ html{scroll-behavior:smooth;overflow-x:hidden}
 .scp5 [data-dc-tpl="104"] { transition: background 0.3s, border-color 0.3s; }
 .scp5:hover [data-dc-tpl="104"] { background: rgba(214, 147, 16, 0.1); border-color: rgba(214, 147, 16, 0.7); }
 
+/* ── Tags gastronomia — 2×2 no mobile ─────────────────────────── */
+@media(max-width:768px){
+  .gastro-tags{display:grid !important;grid-template-columns:1fr 1fr;gap:8px}
+  .gastro-tags>span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px}
+}
+
 /* ── Respiro galeria → formulário ──────────────────────────────── */
 .r-galeria { background: #ffffff; padding-bottom: 80px; }
 
@@ -262,8 +268,7 @@ html{scroll-behavior:smooth;overflow-x:hidden}
   #topo>div:nth-child(2){background:linear-gradient(to top, rgba(21,13,7,0.92) 0%, rgba(21,13,7,0.55) 55%, rgba(21,13,7,0.25) 100%) !important}
   .r-hero{padding:0 24px 56px !important}
   .r-grid2{grid-template-columns:1fr !important}
-  .r-grid3{grid-template-columns:1fr 1fr !important}
-  .r-grid3>*:last-child:nth-child(odd){grid-column:1/-1;max-width:calc(50% - 12px);margin-inline:auto}
+  .r-grid3{grid-template-columns:1fr !important}
   .r-grid4{grid-template-columns:1fr 1fr !important}
   .r-contato{grid-template-columns:1fr !important}
   .r-formgrid{grid-template-columns:1fr !important}

@@ -191,7 +191,11 @@ import '../styles/casamentos.css';
         function setWidths() {
           const visible = getVisible();
           const w = (carousel.offsetWidth - GAP * (visible - 1)) / visible;
-          track.querySelectorAll('.exp-slide').forEach(s => { s.style.width = w + 'px'; });
+          const h = Math.round(w * 4 / 3); // explicit height — aspect-ratio CSS not supported on iOS 14
+          track.querySelectorAll('.exp-slide').forEach(s => {
+            s.style.width = w + 'px';
+            s.style.height = h + 'px';
+          });
         }
 
         function loopWidth() {
@@ -347,6 +351,10 @@ import '../styles/casamentos.css';
 
       </div>
       <button data-dc-tpl="132" aria-label="Próximo" class="r-depbtn" style="position: absolute; top: 50%; right: -22px; transform: translateY(-50%); background: rgb(255, 255, 255); color: #A27D28; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 14px;">›</button>
+      <div class="dep-nav-mobile">
+        <button class="dep-nav-btn dep-nav-prev" aria-label="Anterior">‹</button>
+        <button class="dep-nav-btn dep-nav-next" aria-label="Próximo">›</button>
+      </div>
     </div>
   </section>
 

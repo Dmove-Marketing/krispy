@@ -122,14 +122,20 @@
       requestAnimationFrame(animate);
     }
 
+    function scrollDep(isPrev) {
+      const card = depTrack.firstElementChild;
+      const gap = parseFloat(getComputedStyle(depTrack).gap) || 20;
+      const cardWidth = card ? card.getBoundingClientRect().width + gap : 320;
+      smoothScroll(depTrack, depTrack.scrollLeft + (isPrev ? -cardWidth : cardWidth), 400);
+    }
+
     depBtns.forEach((btn) => {
-      const isPrev = btn.getAttribute('aria-label') === 'Anterior';
-      btn.addEventListener('click', () => {
-        const card = depTrack.firstElementChild;
-        const gap = parseFloat(getComputedStyle(depTrack).gap) || 20;
-        const cardWidth = card ? card.getBoundingClientRect().width + gap : 320;
-        smoothScroll(depTrack, depTrack.scrollLeft + (isPrev ? -cardWidth : cardWidth), 400);
-      });
+      btn.addEventListener('click', () => scrollDep(btn.getAttribute('aria-label') === 'Anterior'));
+    });
+
+    // botões mobile em fluxo normal — garantidamente clicáveis no iOS
+    document.querySelectorAll('.dep-nav-btn').forEach((btn) => {
+      btn.addEventListener('click', () => scrollDep(btn.classList.contains('dep-nav-prev')));
     });
   }
 

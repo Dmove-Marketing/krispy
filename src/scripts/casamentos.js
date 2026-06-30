@@ -105,14 +105,21 @@
     function smoothScroll(el, target, duration) {
       const start = el.scrollLeft;
       const delta = target - start;
+      if (!delta) return;
+      // disable snap during animation — it fights RAF on iOS
+      el.style.scrollSnapType = 'none';
       const startTime = performance.now();
-      function step(now) {
+      function animate(now) {
         const t = Math.min((now - startTime) / duration, 1);
         const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
         el.scrollLeft = start + delta * ease;
-        if (t < 1) requestAnimationFrame(step);
+        if (t < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          el.style.scrollSnapType = '';
+        }
       }
-      requestAnimationFrame(step);
+      requestAnimationFrame(animate);
     }
 
     depBtns.forEach((btn) => {
@@ -120,8 +127,8 @@
       btn.addEventListener('click', () => {
         const card = depTrack.firstElementChild;
         const gap = parseFloat(getComputedStyle(depTrack).gap) || 20;
-        const step = card ? card.getBoundingClientRect().width + gap : 320;
-        smoothScroll(depTrack, depTrack.scrollLeft + (isPrev ? -step : step), 400);
+        const cardWidth = card ? card.getBoundingClientRect().width + gap : 320;
+        smoothScroll(depTrack, depTrack.scrollLeft + (isPrev ? -cardWidth : cardWidth), 400);
       });
     });
   }

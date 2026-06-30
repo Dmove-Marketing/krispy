@@ -54,6 +54,9 @@ html{scroll-behavior:smooth;overflow-x:hidden}
   animation-delay: calc(var(--i) * 3s);
 }
 
+/* oculta scrollbar do track de depoimentos */
+.r-deptrack::-webkit-scrollbar { display: none; }
+
 /* oculta honeypot */
 .hp-field { display: none !important; }
 

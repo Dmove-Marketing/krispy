@@ -66,7 +66,7 @@ import '../styles/casamentos.css';
 
   
   
-  <div data-dc-tpl="40" style="background: linear-gradient(135deg, #A27D28 0%, #A27D28 45%, #A27D28 100%); display: flex; justify-content: center; flex-wrap: nowrap; box-shadow: rgba(162, 125, 40, 0.25) 0px 2px 14px;">
+  <div data-dc-tpl="40" class="r-autoridade" style="background: linear-gradient(135deg, #A27D28 0%, #A27D28 45%, #A27D28 100%); display: flex; justify-content: center; flex-wrap: nowrap; box-shadow: rgba(162, 125, 40, 0.25) 0px 2px 14px;">
     <div data-dc-tpl="41" class="r-stat" style="padding: 28px 56px; text-align: center; border-right: 1px solid rgba(255, 255, 255, 0.28); flex: 0 0 auto; white-space: nowrap;">
       <span data-dc-tpl="42" style="font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: rgb(255, 255, 255); display: block; font-weight: 600;">Avaliação 4,8 no Google</span>
     </div>
@@ -206,8 +206,10 @@ import '../styles/casamentos.css';
           requestAnimationFrame(tick);
         }
 
-        setWidths();
-        requestAnimationFrame(tick);
+        requestAnimationFrame(() => {
+          setWidths();
+          requestAnimationFrame(tick);
+        });
 
         window.addEventListener('resize', () => { setWidths(); x = 0; });
       })();

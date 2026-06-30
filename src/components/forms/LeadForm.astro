@@ -27,7 +27,7 @@ interface Field {
   rows?: number;
   options?: FieldOption[];
   value?: string;
-  mask?: 'phone';
+  mask?: 'phone' | 'currency';
 }
 
 interface FieldRow {
@@ -287,6 +287,15 @@ function renderField(f: Field, cxInputClass: string, cxSelectClass: string, cxAr
     });
   }
 
+  function applyCurrencyMask(input: HTMLInputElement) {
+    input.addEventListener('input', () => {
+      let digits = input.value.replace(/\D/g, '');
+      if (!digits) { input.value = ''; return; }
+      const num = parseInt(digits, 10) / 100;
+      input.value = 'R$ ' + num.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    });
+  }
+
   function initExtras() {
     // Flatpickr em todos os campos de data
     document.querySelectorAll<HTMLInputElement>('[data-datepicker]').forEach((el) => {
@@ -304,6 +313,13 @@ function renderField(f: Field, cxInputClass: string, cxSelectClass: string, cxAr
       if (el.dataset.maskInit) return;
       el.dataset.maskInit = '1';
       applyPhoneMask(el);
+    });
+
+    // Máscara de moeda
+    document.querySelectorAll<HTMLInputElement>('[data-mask="currency"]').forEach((el) => {
+      if (el.dataset.maskInit) return;
+      el.dataset.maskInit = '1';
+      applyCurrencyMask(el);
     });
   }
 

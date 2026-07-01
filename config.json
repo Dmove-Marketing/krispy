@@ -2,10 +2,10 @@
   "project_name": "krispy",
   "project_slug": "krispy",
   "client": "Krispy Buffet",
-  "environment": "development",
+  "environment": "production",
   "tracking": {
-    "gtm_id": "",
-    "enabled": false
+    "gtm_id": "GTM-TCGFJ655",
+    "enabled": true
   },
   "forms": {
     "lead-form": {
@@ -25,7 +25,7 @@
     }
   },
   "whatsapp_popup": {
-    "phone": "5511999999999",
+    "phone": "556784412222",
     "form_id": "whats-popup",
     "show_after_ms": 3000
   },

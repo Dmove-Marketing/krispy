@@ -136,6 +136,18 @@ button {
   --transition-slow: 600ms var(--ease-out-expo);
 }
 
+/* === Honeypot === */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  tab-index: -1;
+}
+
 /* === Utilitários === */
 .container {
   max-width: var(--container-max);

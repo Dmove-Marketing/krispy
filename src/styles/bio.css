@@ -1,0 +1,410 @@
+/* ─── BIO PAGE — Krispy Eventos ─── */
+
+/* ─── HERO ─── */
+.bio-hero {
+  width: 100%;
+  height: 60vh;
+  min-height: 340px;
+  max-height: 600px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bio-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.bio-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(47, 29, 19, 0.95) 0%,
+    rgba(47, 29, 19, 0.50) 50%,
+    rgba(47, 29, 19, 0.22) 100%);
+}
+
+.bio-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.bio-brand-sub {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #d69310;
+  font-weight: 400;
+}
+
+.bio-headline {
+  font-family: 'Georgia', serif;
+  font-size: clamp(18px, 4vw, 32px);
+  font-weight: 400;
+  color: #f6f2ec;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ─── LINKS ─── */
+.bio-links {
+  background: #241510;
+  border-top: 1px solid rgba(214, 147, 16, 0.12);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.bio-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 440px;
+  padding: 16px 22px;
+  border: 1px solid rgba(214, 147, 16, 0.3);
+  background: transparent;
+  color: #f6f2ec;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  font-family: 'Parkinsans', sans-serif;
+  font-weight: 300;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.bio-link-btn svg {
+  flex-shrink: 0;
+  color: #d69310;
+}
+
+.bio-link-btn:hover {
+  background: rgba(214, 147, 16, 0.08);
+  border-color: rgba(214, 147, 16, 0.55);
+}
+
+.bio-link-btn--secondary {
+  font-size: 11px;
+  color: rgba(246, 242, 236, 0.65);
+  border-color: rgba(214, 147, 16, 0.15);
+}
+
+.bio-link-btn--secondary:hover {
+  color: #f6f2ec;
+}
+
+/* ─── FORM SECTION ─── */
+.form-section {
+  background: #2f1d13;
+  border-top: 1px solid rgba(214, 147, 16, 0.12);
+  padding: 48px 24px 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section-label {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #d69310;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Georgia', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 400;
+  color: #f6f2ec;
+  line-height: 1.25;
+  max-width: 420px;
+  margin: 0 auto 48px;
+  letter-spacing: -0.01em;
+}
+
+.section-title em {
+  font-style: italic;
+  color: #d69310;
+}
+
+/* ─── FORM CARD (bio prefix) ─── */
+.form-card {
+  width: 100%;
+  max-width: 560px;
+  background: #f6f2ec;
+  border: 1px solid #f6f2ec;
+  border-radius: 4px;
+  padding: 48px 40px;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ─── FORM GRID ─── */
+.bio-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.bio-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.bio-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bio-form-group.full {
+  grid-column: 1 / -1;
+}
+
+/* ─── LABELS ─── */
+.bio-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6b4a28;
+  font-weight: 500;
+}
+
+/* ─── INPUTS ─── */
+.bio-input,
+.bio-select,
+.bio-textarea {
+  padding: 14px 16px;
+  background: transparent;
+  border: 1px solid rgba(47, 29, 19, 0.2);
+  color: #2f1d13;
+  font-size: 14px;
+  font-family: 'Parkinsans', sans-serif;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.3s;
+  border-radius: 0;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.bio-input::placeholder,
+.bio-textarea::placeholder {
+  color: rgba(47, 29, 19, 0.3);
+}
+
+.bio-select:has(option[value=""]:checked) {
+  color: rgba(47, 29, 19, 0.3);
+}
+
+.bio-input:focus,
+.bio-select:focus,
+.bio-textarea:focus {
+  border-color: #a27d28;
+}
+
+.bio-textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.bio-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232f1d13' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-color: #f6f2ec;
+  cursor: pointer;
+}
+
+.bio-select option {
+  background-color: #f6f2ec;
+  color: #2f1d13;
+}
+
+/* ─── SUBMIT ─── */
+.bio-submit {
+  width: 100%;
+  background: #a27d28;
+  color: #fff;
+  padding: 18px 32px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: 'Parkinsans', sans-serif;
+  font-weight: 500;
+  transition: background 0.3s;
+  margin-top: 4px;
+}
+
+.bio-submit:hover {
+  background: #d69310;
+}
+
+.bio-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ─── FORM FOOTER & ERROR ─── */
+.bio-form-footer {
+  font-size: 10px;
+  color: rgba(47, 29, 19, 0.35);
+  letter-spacing: 0.3px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.bio-form-msg {
+  font-size: 13px;
+  color: #c0392b;
+  text-align: center;
+  display: none;
+}
+
+/* ─── SUCCESS STATE ─── */
+.bio-success-state {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.bio-success-state.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.bio-success-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #a27d28;
+  border-radius: 50%;
+}
+
+.bio-success-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.bio-success-title {
+  font-family: 'Georgia', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #2f1d13;
+}
+
+.bio-success-text {
+  font-size: 14px;
+  color: #6b4a28;
+  line-height: 1.7;
+}
+
+/* ─── FOOTER ─── */
+.bio-footer {
+  background: #1a0f09;
+}
+
+.bio-footer__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px 32px;
+  border-bottom: 1px solid rgba(246, 242, 236, 0.06);
+}
+
+.bio-footer__client-logo {
+  height: 52px;
+  width: auto;
+  opacity: 0.85;
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 40px;
+}
+
+.footer__copy {
+  font-size: 10px;
+  color: rgba(246, 242, 236, 0.18);
+  letter-spacing: 0.5px;
+}
+
+.footer__dmove {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: rgba(246, 242, 236, 0.25);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+.footer__dmove:hover {
+  color: rgba(246, 242, 236, 0.5);
+}
+
+.footer__dmove-logo {
+  height: 14px;
+  width: auto;
+  opacity: 0.45;
+  transition: opacity 0.3s;
+}
+
+.footer__dmove:hover .footer__dmove-logo {
+  opacity: 0.7;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 480px) {
+  .form-card {
+    padding: 36px 24px;
+  }
+
+  .bio-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px 24px;
+    text-align: center;
+  }
+}

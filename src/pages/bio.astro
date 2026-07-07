@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import LeadForm from '../components/forms/LeadForm.astro';
+import { getImage } from 'astro:assets';
+import rawDmove from '../assets/images/Versao-Principal-Negativo-scaled-e1750426923582.avif';
+import '../styles/bio.css';
+const dmoveLogo = await getImage({ src: rawDmove, format: 'avif' });
+---
+
+<Base
+  title="Krispy Eventos — Espaço de Eventos e Buffet em Campo Grande"
+  description="O espaço onde grandes histórias são celebradas de forma extraordinária. Espaço de eventos e buffet em Campo Grande - MS."
+  ogImage="/images/og-casamentos.jpg"
+>
+
+<!-- HERO IMAGE + TÍTULO -->
+  <section class="bio-hero">
+    <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-06-25_at_4.45.21_PM.webp" alt="Salão do Krispy Eventos decorado para um evento especial" class="bio-hero-img" loading="eager" fetchpriority="high" />
+    <div class="bio-hero-overlay"></div>
+    <div class="bio-hero-content">
+      <span class="bio-brand-sub">Krispy Eventos · Campo Grande - MS</span>
+      <h1 class="bio-headline">O espaço onde grandes histórias são celebradas de forma extraordinária</h1>
+    </div>
+  </section>
+
+<!-- LINKS -->
+  <section class="bio-links">
+    <a href="https://krispyeventos.com.br/" target="_blank" rel="noopener" class="bio-link-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      <span>Nosso site</span>
+    </a>
+    <a
+      href="https://maps.google.com/?q=R.+Corumbá,+439,+Monte+Castelo,+Campo+Grande,+MS,+79011-050"
+      target="_blank"
+      rel="noopener"
+      class="bio-link-btn bio-link-btn--secondary"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <span>R. Corumbá, 439 — Monte Castelo, Campo Grande - MS</span>
+    </a>
+  </section>
+
+<!-- FORM -->
+  <section class="form-section" id="solicitar">
+    <p class="section-label">Fale conosco</p>
+    <h2 class="section-title">Vamos celebrar sua<br><em>história juntos?</em></h2>
+
+    <LeadForm
+      formId="lead-form"
+      class="form-card"
+      prefix="bio"
+      project={config.project_slug}
+      submitUrl={config.forms['lead-form'].webhooks[0]}
+      redirectUrl={config.forms['lead-form'].redirect_on_success}
+      submitText="Solicitar orçamento"
+      honeypot
+      fields={[
+        { name: 'nome', type: 'text', label: 'Nome completo', placeholder: 'Seu nome', required: true, full: true },
+        { type: 'row', fields: [
+          { name: 'telefone', id: 'whatsapp', type: 'tel', label: 'WhatsApp', placeholder: '(00) 00000-0000', required: true },
+          { name: 'email', type: 'email', label: 'E-mail', placeholder: 'seu@email.com', required: true }
+        ]},
+        { name: 'tipo', type: 'select', label: 'Tipo de evento', placeholder: '', required: true, full: true, options: [
+          { value: '', label: 'Tipo de evento' },
+          { value: 'Casamento', label: 'Casamento' },
+          { value: 'Aniversário', label: 'Aniversário' },
+          { value: 'Aniversário debutante', label: 'Aniversário debutante' },
+          { value: 'Formatura', label: 'Formatura' },
+          { value: 'Bodas', label: 'Bodas' },
+          { value: 'Confraternização corporativa', label: 'Confraternização corporativa' },
+          { value: 'Confraternização social', label: 'Confraternização social' },
+          { value: 'Corporativo', label: 'Corporativo' },
+          { value: 'Outros', label: 'Outros' }
+        ] },
+        { type: 'row', fields: [
+          { name: 'data', type: 'text', label: 'Data do evento', placeholder: 'dd/mm/aaaa', required: true },
+          { name: 'convidados', type: 'number', label: 'Nº de convidados', placeholder: 'Ex: 150', required: true }
+        ]},
+        { name: 'mensagem', type: 'textarea', label: 'Mensagem', placeholder: 'Detalhes adicionais (não obrigatório)', required: false, full: true }
+      ]}
+    />
+  </section>
+
+<!-- FOOTER -->
+  <footer class="bio-footer">
+    <div class="bio-footer__top">
+      <img src="https://media.dmove.com.br/clients/krispy/photos/logo_krispy.webp" alt="Krispy Eventos" class="bio-footer__client-logo" width="120" height="48" />
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Krispy Eventos. Todos os direitos reservados.</p>
+      <a href="https://dmove.com.br/" target="_blank" rel="noopener noreferrer" class="footer__dmove">
+        Desenvolvido por
+        <img src={dmoveLogo.src} alt="Dmove" class="footer__dmove-logo" width="60" height="14" />
+      </a>
+    </div>
+  </footer>
+
+</Base>
+
+<script>
+  import '../scripts/bio.js';
+</script>

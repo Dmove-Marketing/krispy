@@ -1,0 +1,309 @@
+/* Estilos da página Debutantes — Krispy */
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* Entrelinha normalizada para parágrafos e spans de corpo */
+p, .wap-form p { line-height: 1.2 !important; }
+
+
+/* Entrelinha consistente nos títulos */
+h1 { line-height: 1.1 !important; }
+h2 { line-height: 1.15 !important; }
+h3 { line-height: 1.2 !important; }
+
+/* Desktop — quebra de linha exatamente antes do em dourado */
+@media(min-width:769px){
+  h2 { font-size: clamp(28px, 2.8vw, 40px) !important; }
+  h2 em { display: block; }
+}
+
+html{scroll-behavior:smooth;overflow-x:hidden}
+
+@keyframes heroZoom{to{transform:scale(1)}}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+@keyframes floatIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+
+::selection{background:#d69310;color:#fff}
+
+/* Vídeo em painel lateral — preenche a altura do grid sem aspect-ratio fixo */
+.video-panel-fill {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: unset !important;
+}
+
+/* Slideshow CSS — seção Gastronomia (9 imagens, 3s cada = 27s ciclo) */
+@keyframes gastro-fade {
+  0%     { opacity: 0; }
+  2%     { opacity: 1; }
+  9%     { opacity: 1; }
+  11.11% { opacity: 0; }
+  100%   { opacity: 0; }
+}
+
+.gastronomia-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: gastro-fade 27s infinite;
+  animation-delay: calc(var(--i) * 3s);
+}
+
+/* botões de navegação mobile dos depoimentos */
+.dep-nav-mobile{display:none;justify-content:center;gap:16px;margin-top:24px}
+.dep-nav-btn{width:44px;height:44px;border-radius:50%;background:#fff;color:#A27D28;border:none;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.12);-webkit-tap-highlight-color:transparent}
+
+/* oculta scrollbar do track de depoimentos */
+.r-deptrack::-webkit-scrollbar { display: none; }
+
+/* evita que seleção de texto bloqueie o swipe */
+.r-deptrack { user-select: none; -webkit-user-select: none; }
+
+/* oculta honeypot */
+.hp-field { display: none !important; }
+
+/* ===== LeadForm — prefix="krispy" ===== */
+.krispy-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.krispy-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.krispy-form-group.full {
+  grid-column: 1 / -1;
+}
+
+.krispy-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(246, 242, 236, 0.45);
+  font-weight: 500;
+  font-family: 'Parkinsans', sans-serif;
+}
+
+.krispy-input,
+.krispy-select,
+.krispy-textarea {
+  padding: 14px 16px;
+  background: rgba(246, 242, 236, 0.06);
+  border: 1px solid rgba(246, 242, 236, 0.14);
+  color: rgb(246, 242, 236);
+  font-size: 15px;
+  font-weight: 300;
+  font-family: 'Parkinsans', sans-serif;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.krispy-input::placeholder,
+.krispy-textarea::placeholder {
+  color: rgba(246, 242, 236, 0.3);
+}
+
+.krispy-input:focus,
+.krispy-select:focus,
+.krispy-textarea:focus {
+  border-color: rgba(214, 147, 16, 0.6);
+}
+
+.krispy-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(246,242,236,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.krispy-select option {
+  background: #2f1d13;
+  color: #f6f2ec;
+}
+
+/* date picker override */
+.krispy-input[data-datepicker] {
+  cursor: pointer;
+  color-scheme: dark;
+}
+
+.krispy-submit {
+  background: #d69310;
+  color: #ffffff;
+  padding: 18px 36px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Parkinsans', sans-serif;
+  width: 100%;
+  margin-top: 6px;
+  border-radius: 0;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.krispy-submit:hover {
+  background: #c4850e;
+  transform: translateY(-1px);
+}
+
+.krispy-submit:active {
+  transform: translateY(0);
+}
+
+.krispy-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.krispy-field-error {
+  font-size: 11px;
+  color: #f87171;
+  display: none;
+}
+
+.krispy-field-error.visible {
+  display: block;
+}
+
+.krispy-form-msg {
+  font-size: 13px;
+  color: #f87171;
+  display: none;
+  grid-column: 1 / -1;
+}
+
+.krispy-form-footer {
+  font-size: 12px;
+  color: rgba(246, 242, 236, 0.3);
+  margin-top: 4px;
+  line-height: 1.6;
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+.krispy-success-state {
+  display: none;
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.krispy-success-state.active {
+  display: block;
+}
+
+.krispy-success-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #d69310;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.krispy-success-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: #ffffff;
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.krispy-success-title {
+  font-family: 'Georgia', Georgia, serif;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-weight: 400;
+  color: #d69310;
+  margin-bottom: 12px;
+}
+
+.krispy-success-text {
+  font-size: 15px;
+  color: rgba(246, 242, 236, 0.65);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* ── Hover: cards de diferenciais ──────────────────────────────── */
+.scp3 { transition: background 0.3s; }
+.scp3:hover { background: #faf5ef !important; }
+
+/* ── Hover: cards de ícones (estrutura) ────────────────────────── */
+.scp5 { transition: background 0.3s; }
+.scp5:hover { background: #faf5ef !important; }
+.scp5 [data-dc-tpl="104"] { transition: background 0.3s, border-color 0.3s; }
+.scp5:hover [data-dc-tpl="104"] { background: rgba(214, 147, 16, 0.1); border-color: rgba(214, 147, 16, 0.7); }
+
+/* ── Tags gastronomia — 2×2 no mobile ─────────────────────────── */
+@media(max-width:768px){
+  .gastro-tags{display:grid !important;grid-template-columns:1fr 1fr;gap:8px}
+  .gastro-tags>span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px}
+}
+
+/* ── Respiro galeria → formulário ──────────────────────────────── */
+.r-galeria { background: #ffffff; padding-bottom: 80px; }
+
+/* ===== responsivo ===== */
+@media(max-width:960px){
+  .r-grid3{grid-template-columns:1fr 1fr !important}
+}
+@media(max-width:768px){
+  h1,h2,h3,h4,h5,h6,p,span,li{text-align:center !important}
+  .r-hero{text-align:center !important;padding-bottom:56px !important}
+  .r-hero a[href]{margin-left:auto !important;margin-right:auto !important}
+  .r-hero>*{align-items:center !important}
+  /* hero mobile — título menor */
+  #topo h1{font-size:clamp(24px, 7vw, 36px) !important}
+  /* hero mobile — conteúdo na base, imagem à direita, overlay mais escuro */
+  #topo{align-items:flex-end !important}
+  #topo img{object-position:67% center !important}
+  #topo>div:nth-child(2){background:linear-gradient(to top, rgba(21,13,7,0.92) 0%, rgba(21,13,7,0.55) 55%, rgba(21,13,7,0.25) 100%) !important}
+  .r-hero{padding:0 24px 56px !important}
+  .r-grid2{grid-template-columns:1fr !important}
+  .r-grid3{grid-template-columns:1fr !important}
+  .r-grid4{grid-template-columns:1fr 1fr !important}
+  .r-contato{grid-template-columns:1fr !important}
+  .r-formgrid{grid-template-columns:1fr !important}
+  .krispy-form-grid{grid-template-columns:1fr !important}
+  .r-galeria{grid-template-columns:1fr !important;grid-template-rows:auto !important;grid-auto-rows:auto !important}
+  .r-galeria>*{grid-row:auto !important;grid-column:auto !important;aspect-ratio:4/3}
+  .r-galeria>* img,.r-galeria>* video{width:100%;height:100%;object-fit:cover;display:block}
+
+  .r-sec{padding:72px 24px !important}
+  .r-pad-inner{padding:56px 28px !important}
+  .r-media{min-height:280px !important;order:-1}
+  .r-contato-info{border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08) !important}
+  .r-deptrack>div{flex:0 0 86% !important;min-width:0 !important}
+  .r-depbtn{display:none !important}
+  .dep-nav-mobile{display:flex !important}
+  .r-footer{padding:40px 24px !important;display:flex !important;flex-direction:column !important;align-items:center !important;gap:24px !important;text-align:center !important;grid-template-columns:unset !important}
+  .r-footer>p{order:2}
+  .r-footer>a{order:1}
+  .r-footer>div{order:3}
+  .r-autoridade{flex-direction:column !important}
+  .r-stat{width:100% !important;flex:none !important;padding:20px 24px !important;white-space:normal !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.28) !important}
+  .r-stat:last-child{border-bottom:none !important}
+}
+@media(max-width:880px){
+  .r-nav{padding:18px 24px !important}
+  .r-nav-links{display:none !important}
+  .r-burger{display:flex !important}
+}

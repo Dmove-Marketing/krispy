@@ -16,6 +16,8 @@ interface Props {
   jsonLd?: Record<string, any>;
   /** Sobrescreve o form_name enviado ao n8n pelo popup de WhatsApp desta página */
   whatsappFormId?: string;
+  /** Opções do select "Tipo de evento" no popup de WhatsApp — específico por página */
+  whatsappTipoOptions?: string[];
 }
 
 const {
@@ -27,6 +29,7 @@ const {
   theme = 'dark',
   jsonLd,
   whatsappFormId,
+  whatsappTipoOptions,
 } = Astro.props;
 
 import config from '../../config.json';
@@ -100,6 +103,7 @@ const defaultJsonLd = {
         formId={wapFormId}
         submitUrl={wapWebhook}
         showAfterMs={wapDelay}
+        tipoEventoOptions={whatsappTipoOptions}
       />
     )}
 

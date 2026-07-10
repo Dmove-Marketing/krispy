@@ -5,19 +5,21 @@
 // Personalize por página passando formId diferente (ex: "whats-casamentos")
 
 interface Props {
-  phone: string;          // DDI + DDD + número, só dígitos: 5511999999999
-  formId?: string;        // ID para rastreamento no n8n (ex: "whats-casamentos")
-  submitUrl?: string;     // Webhook n8n — envia em background antes de abrir o WhatsApp
-  showAfterMs?: number;   // Delay para aparecer o botão (ms)
+  phone: string;                  // DDI + DDD + número, só dígitos: 5511999999999
+  formId?: string;                // ID para rastreamento no n8n (ex: "whats-casamentos")
+  submitUrl?: string;             // Webhook n8n — envia em background antes de abrir o WhatsApp
+  showAfterMs?: number;           // Delay para aparecer o botão (ms)
   position?: 'bottom-right' | 'bottom-left';
+  tipoEventoOptions?: string[];   // Opções do select "Tipo de evento" — específico por página
 }
 
 const {
   phone,
-  formId      = 'whats-popup',
-  submitUrl   = '',
-  showAfterMs = 3000,
-  position    = 'bottom-right',
+  formId             = 'whats-popup',
+  submitUrl          = '',
+  showAfterMs        = 3000,
+  position           = 'bottom-right',
+  tipoEventoOptions  = ['Bodas', 'Casamento', 'Confraternização social', 'Outros'],
 } = Astro.props;
 
 const cleanPhone = phone.replace(/\D/g, '');
@@ -121,10 +123,7 @@ const cleanPhone = phone.replace(/\D/g, '');
           <div class="wap-field">
             <select class="wap-select" name="Tipo de evento">
               <option value="" disabled selected>Tipo de evento *</option>
-              <option>Bodas</option>
-              <option>Casamento</option>
-              <option>Confraternização social</option>
-              <option>Outros</option>
+              {tipoEventoOptions.map(opt => <option value={opt}>{opt}</option>)}
             </select>
             <span class="wap-field-error" id="wap-err-tipo"></span>
           </div>

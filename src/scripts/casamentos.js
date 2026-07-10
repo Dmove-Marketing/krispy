@@ -9,21 +9,39 @@
   const depBtns = document.querySelectorAll('.r-depbtn');
 
   // ── Nav scroll shrink ──────────────────────────────────────────────
+  // Threshold: topo da segunda seção (barra de autoridade), descontando a altura do nav
+  let navThreshold = 0;
+  function computeNavThreshold() {
+    const autoridade = document.querySelector('.r-autoridade');
+    navThreshold = autoridade
+      ? Math.max(0, autoridade.offsetTop - (nav ? nav.offsetHeight : 80))
+      : window.innerHeight * 0.85;
+  }
+
   function updateNav() {
     if (!nav) return;
     const narrow = window.innerWidth <= 768;
     const h = narrow ? 24 : 60;
-    if (window.scrollY > 30) {
+    if (window.scrollY >= navThreshold) {
       nav.style.padding = (narrow ? 12 : 15) + 'px ' + h + 'px';
       nav.style.background = 'rgba(26,22,18,0.95)';
       nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.18)';
+      if (navLinks) { navLinks.style.opacity = '1'; navLinks.style.pointerEvents = 'auto'; }
+      if (burger) burger.style.opacity = '1';
     } else {
       nav.style.padding = (narrow ? 18 : 24) + 'px ' + h + 'px';
-      nav.style.background = 'rgba(47,29,19,0.78)';
+      nav.style.background = 'transparent';
       nav.style.boxShadow = 'none';
+      if (navLinks) { navLinks.style.opacity = '0'; navLinks.style.pointerEvents = 'none'; }
+      if (burger) burger.style.opacity = '0';
     }
   }
 
+  // Calcular threshold imediatamente e aplicar estado correto no primeiro render
+  computeNavThreshold();
+  updateNav();
+  // Recalcular após load (imagens podem mudar o offsetTop)
+  window.addEventListener('load', () => { computeNavThreshold(); updateNav(); });
   window.addEventListener('scroll', updateNav, { passive: true });
 
   // ── Responsive nav ─────────────────────────────────────────────────
@@ -39,7 +57,7 @@
   }
 
   applyResponsive();
-  window.addEventListener('resize', applyResponsive);
+  window.addEventListener('resize', () => { computeNavThreshold(); applyResponsive(); });
 
   // ── Mobile menu ────────────────────────────────────────────────────
   let menuOpen = false;

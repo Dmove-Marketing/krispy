@@ -59,9 +59,7 @@ export function initForms() {
       }
     });
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
+    async function handleSubmit() {
       const hp = form.querySelector<HTMLInputElement>('[name="website"]');
       if (hp && hp.value) return;
 
@@ -150,6 +148,17 @@ export function initForms() {
           }
         }
       }
+    }
+
+    form.querySelector<HTMLButtonElement>('.form-submit, [type="submit"]')
+      ?.addEventListener('click', () => { handleSubmit(); });
+
+    form.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'TEXTAREA' || target.tagName === 'BUTTON') return;
+      e.preventDefault();
+      handleSubmit();
     });
   });
 }

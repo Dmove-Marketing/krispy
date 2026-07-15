@@ -17,7 +17,8 @@ import '../styles/debutantes.css';
 <Base
   title="Krispy - Debutantes"
   ogImage="/images/og-debutantes.jpg"
-  whatsappTipoOptions={['Aluguel do espaço', 'Aniversário', 'Aniversário debutante', 'Confraternização social', 'Outros']}
+  whatsappTipoOptions={['Aniversário', 'Aniversário debutante', 'Confraternização social', 'Outros']}
+  whatsappShowBudget={true}
 >
 <div id="dc-root"><div class="sc-host" data-sc-name="Debutantes Krispy"><div data-dc-tpl="5" style="font-family: Parkinsans, sans-serif; color: #f6f2ec; background: #2f1d13;">
 
@@ -70,10 +71,7 @@ import '../styles/debutantes.css';
     <div data-dc-tpl="41" class="r-stat" style="padding: 28px 56px; text-align: center; border-right: 1px solid rgba(255, 255, 255, 0.28); flex: 0 0 auto; white-space: nowrap;">
       <span data-dc-tpl="42" style="font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: rgb(255, 255, 255); display: block; font-weight: 600;">Avaliação 4,8 no Google</span>
     </div>
-    <div data-dc-tpl="44" class="r-stat" style="padding: 28px 56px; text-align: center; border-right: 1px solid rgba(255, 255, 255, 0.28); flex: 0 0 auto; white-space: nowrap;">
-      <span data-dc-tpl="45" style="font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: rgb(255, 255, 255); display: block; font-weight: 600;">Espaço para locação</span>
-    </div>
-    <div data-dc-tpl="47" class="r-stat" style="padding: 28px 56px; text-align: center; flex: 0 0 auto; white-space: nowrap;">
+<div data-dc-tpl="47" class="r-stat" style="padding: 28px 56px; text-align: center; flex: 0 0 auto; white-space: nowrap;">
       <span data-dc-tpl="48" style="font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: rgb(255, 255, 255); display: block; font-weight: 600;">Espaço + Buffet</span>
     </div>
   </div>
@@ -95,8 +93,8 @@ import '../styles/debutantes.css';
       <span data-dc-tpl="56" style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 22px; display: block; font-weight: 600;">Sobre o Krispy</span>
       <h2 data-dc-tpl="57" style="font-family: Georgia, serif; font-size: clamp(28px, 2.6vw, 42px); font-weight: 400; color: #2f1d13; line-height: 1.22; margin-bottom: 28px; letter-spacing: -0.2px;">A experiência de quem sabe<br /><span data-dc-tpl="58" style="font-weight: 500; color: #A27D28;">que cada detalhe importa</span></h2>
       <p data-dc-tpl="59" style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300; margin-bottom: 24px;">Mais do que realizar eventos, o Krispy nasceu para que debutantes e suas famílias vivam esse momento com mais tranquilidade e segurança.</p>
-      <p data-dc-tpl="60" style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300; margin-bottom: 24px;">São mais de <b data-dc-tpl="61" style="font-weight: 600; color: #2f1d13;">20 anos de atuação</b> no mercado de eventos, proporcionando celebrações cuidadosamente planejadas, que unem estrutura sofisticada, gastronomia impecável e um atendimento próximo em cada etapa da organização.</p>
-      <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300;"><b style="font-weight: 600; color: #2f1d13;">Você escolhe a forma de celebrar:</b> apenas o espaço ou uma experiência completa com buffet e equipe especializada.</p>
+      <p data-dc-tpl="60" style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300; margin-bottom: 24px;">Cada celebração é cuidadosamente planejada para unir um espaço sofisticado, gastronomia de qualidade e um atendimento próximo em todas as etapas da organização.</p>
+      <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300;">Aqui, você encontra uma solução completa: espaço e buffet integrados para tornar o planejamento mais prático e garantir uma experiência memorável do início ao fim.</p>
     </div>
   </section>
 
@@ -113,7 +111,7 @@ import '../styles/debutantes.css';
         </div>
         <div data-dc-tpl="70" style="padding: 34px 30px 38px;">
           <h3 data-dc-tpl="71" style="font-family: Georgia, serif; font-size: 16px; font-weight: 500; color: #2f1d13; margin-bottom: 12px; line-height: 1.25;">Tudo em um só lugar</h3>
-          <p data-dc-tpl="72" style="font-size: 14px; line-height: 1.75; color: rgba(47, 29, 19, 0.7); font-weight: 300;">Você escolhe entre a locação do espaço ou um pacote completo com buffet.</p>
+          <p data-dc-tpl="72" style="font-size: 14px; line-height: 1.75; color: rgba(47, 29, 19, 0.7); font-weight: 300;">Espaço e buffet integrados para oferecer mais praticidade, conforto e uma celebração completa em um único lugar.</p>
         </div>
       </div>
       <div data-dc-tpl="73" data-reveal="" class="scp3" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.2); overflow: hidden; transition: opacity 0.8s, transform 0.8s; opacity: 1; transform: none;">
@@ -284,17 +282,12 @@ import '../styles/debutantes.css';
 
   <!-- ── GASTRONOMIA ───────────────────────────────────────────────── -->
   <section data-dc-tpl="106" id="gastronomia" class="r-grid2" style="display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; scroll-margin-top: 80px;">
-    <!-- TODO: substituir pelas imagens do slideshow de gastronomia de debutantes -->
-    <div class="r-media gastronomia-slideshow" style="background: #2f1d13; min-height: 480px; position: relative; overflow: hidden;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/pratos-para-casamento_krispy-2-copiar.webp"                         alt="Gastronomia Krispy" loading="lazy" style="--i:0" />
-      <img src="https://media.dmove.com.br/clients/krispy/photos/pratos-para-casamento_img-20250402-wa0343.webp"                     alt="Gastronomia Krispy" loading="lazy" style="--i:1" />
-      <img src="https://media.dmove.com.br/clients/krispy/photos/pratos-para-casamento-1714579551_img-20230911-wa0027.webp"          alt="Gastronomia Krispy" loading="lazy" style="--i:2" />
-      <img src="https://media.dmove.com.br/clients/krispy/photos/pratos-para-casamento_luc6940.webp"                                 alt="Gastronomia Krispy" loading="lazy" style="--i:3" />
-      <img src="https://media.dmove.com.br/clients/krispy/photos/pratos-para-casamento_luc6922.webp"                                 alt="Gastronomia Krispy" loading="lazy" style="--i:4" />
-      <img src="https://media.dmove.com.br/clients/krispy/photos/pratos-para-casamento_krispy-3-copiar.webp"                         alt="Gastronomia Krispy" loading="lazy" style="--i:5" />
-      <img src="https://media.dmove.com.br/clients/krispy/photos/pratos-para-casamento_img-20240614-wa0030.webp"                     alt="Gastronomia Krispy" loading="lazy" style="--i:6" />
-      <img src="https://media.dmove.com.br/clients/krispy/photos/pratos-para-casamento_img-20250402-wa0223.webp"                     alt="Gastronomia Krispy" loading="lazy" style="--i:7" />
-      <img src="https://media.dmove.com.br/clients/krispy/photos/pratos-para-casamento_img-20250402-wa0229.webp"                     alt="Gastronomia Krispy" loading="lazy" style="--i:8" />
+<div class="r-media gastronomia-slideshow" style="background: #2f1d13; min-height: 480px; position: relative; overflow: hidden;">
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.27.04_PM_(7).webp"  alt="Gastronomia Krispy" loading="lazy" style="--i:0" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.27.04_PM_(9).webp"  alt="Gastronomia Krispy" loading="lazy" style="--i:1" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.40.32_PM_(1).webp"  alt="Gastronomia Krispy" loading="lazy" style="--i:2" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.40.33_PM_(3).webp"  alt="Gastronomia Krispy" loading="lazy" style="--i:3" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.40.33_PM_(7).webp"  alt="Gastronomia Krispy" loading="lazy" style="--i:4" />
     </div>
     <div data-dc-tpl="110" data-reveal="" class="r-pad-inner" style="background: #faf5ef; border-left: 4px solid #A27D28; padding: 84px 72px; display: flex; flex-direction: column; justify-content: center; opacity: 1; transform: none; transition: opacity 0.8s, transform 0.8s;">
       <span data-dc-tpl="111" style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 22px; display: block; font-weight: 600;">Gastronomia</span>
@@ -366,40 +359,40 @@ import '../styles/debutantes.css';
   </div>
   <div class="r-galeria" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px;">
     <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_673794443_18580679794057064_6743829197776592752_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_673062580_18580679737057064_7128695469213847095_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block;" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_671134228_18580679662057064_6267899199992899549_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
     <div style="overflow: hidden; aspect-ratio: 1/1;">
       <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_672401895_18580679812057064_5250719757016837744_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
     <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_672382904_18580782364057064_4371413287725901240_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.13.53_PM_(3).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
     <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_672332495_18580679671057064_5203009038751962179_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.18.52_PM_(8).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
     <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_673078798_18580679689057064_6794933126286751395_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.27.04_PM_(2).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
     <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_671812946_18580679698057064_5061859935193654423_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.58.57_PM_(1).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
     <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_671764063_18580679776057064_6764806637209782349_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block;" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.51.13_PM_(4).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
     <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_671187834_18580679830057064_2808720678034112343_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.53.35_PM_(2).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
     <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_671134328_18580679755057064_910155163540595117_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.56.32_PM_(1).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
     <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_671134228_18580679662057064_6267899199992899549_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.57.45_PM_(1).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
     <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_673874728_18580679650057064_480419988959291837_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.27.03_PM.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+    </div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;">
+      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.58.58_PM.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
     </div>
   </div>
 
@@ -428,13 +421,13 @@ import '../styles/debutantes.css';
           { name: 'convidados',  type: 'number',   placeholder: 'Nº de convidados',     required: true },
           { name: 'tipo_evento', type: 'select',   required: true, options: [
               { value: '',                          label: 'Tipo de evento',          disabled: true, selected: true },
-              { value: 'Aluguel do espaço',         label: 'Aluguel do espaço' },
               { value: 'Aniversário',               label: 'Aniversário' },
               { value: 'Aniversário debutante',     label: 'Aniversário debutante' },
               { value: 'Confraternização social',   label: 'Confraternização social' },
               { value: 'Outros',                    label: 'Outros' },
             ]
           },
+          { name: 'Budget',      type: 'text',     placeholder: 'Quanto você está disposta a investir?', required: false, full: true, mask: 'currency' },
           { name: 'mensagem',    type: 'textarea', placeholder: 'Mensagem (opcional)', required: false, full: true, rows: 4 },
         ]}
       />

@@ -34,12 +34,12 @@ html{scroll-behavior:smooth;overflow-x:hidden}
   aspect-ratio: unset !important;
 }
 
-/* Slideshow CSS — seção Gastronomia (9 imagens, 3s cada = 27s ciclo) */
+/* Slideshow CSS — seção Gastronomia (5 imagens, 3s cada = 15s ciclo) */
 @keyframes gastro-fade {
   0%     { opacity: 0; }
-  2%     { opacity: 1; }
-  9%     { opacity: 1; }
-  11.11% { opacity: 0; }
+  3.33%  { opacity: 1; }
+  16.67% { opacity: 1; }
+  20%    { opacity: 0; }
   100%   { opacity: 0; }
 }
 
@@ -50,8 +50,13 @@ html{scroll-behavior:smooth;overflow-x:hidden}
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  animation: gastro-fade 27s infinite;
+  animation: gastro-fade 15s infinite;
   animation-delay: calc(var(--i) * 3s);
+}
+
+.gastronomia-slideshow img:nth-child(1),
+.gastronomia-slideshow img:nth-child(4) {
+  object-position: center bottom;
 }
 
 /* botões de navegação mobile dos depoimentos */

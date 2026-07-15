@@ -18,6 +18,8 @@ interface Props {
   whatsappFormId?: string;
   /** Opções do select "Tipo de evento" no popup de WhatsApp — específico por página */
   whatsappTipoOptions?: string[];
+  /** Exibe campo Budget no popup de WhatsApp */
+  whatsappShowBudget?: boolean;
 }
 
 const {
@@ -30,6 +32,7 @@ const {
   jsonLd,
   whatsappFormId,
   whatsappTipoOptions,
+  whatsappShowBudget = false,
 } = Astro.props;
 
 import config from '../../config.json';
@@ -104,6 +107,7 @@ const defaultJsonLd = {
         submitUrl={wapWebhook}
         showAfterMs={wapDelay}
         tipoEventoOptions={whatsappTipoOptions}
+        showBudget={whatsappShowBudget}
       />
     )}
 

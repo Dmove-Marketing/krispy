@@ -11,6 +11,7 @@ interface Props {
   showAfterMs?: number;           // Delay para aparecer o botão (ms)
   position?: 'bottom-right' | 'bottom-left';
   tipoEventoOptions?: string[];   // Opções do select "Tipo de evento" — específico por página
+  showBudget?: boolean;           // Exibe campo de investimento (Budget) no passo 2
 }
 
 const {
@@ -20,6 +21,7 @@ const {
   showAfterMs        = 3000,
   position           = 'bottom-right',
   tipoEventoOptions  = ['Bodas', 'Casamento', 'Confraternização social', 'Outros'],
+  showBudget         = false,
 } = Astro.props;
 
 const cleanPhone = phone.replace(/\D/g, '');
@@ -149,6 +151,18 @@ const cleanPhone = phone.replace(/\D/g, '');
             />
             <span class="wap-field-error" id="wap-err-conv"></span>
           </div>
+          {showBudget && (
+            <div class="wap-field">
+              <input
+                class="wap-input"
+                type="text"
+                name="Budget"
+                placeholder="Quanto você está disposta a investir?"
+                data-mask="currency"
+                autocomplete="off"
+              />
+            </div>
+          )}
           <button type="button" class="wap-btn wap-btn-submit">
             <span class="wap-btn-text">
               Enviar pelo WhatsApp
@@ -287,6 +301,17 @@ const cleanPhone = phone.replace(/\D/g, '');
     const phoneInput = form.querySelector<HTMLInputElement>('[name="WhatsApp"]');
     if (phoneInput) applyPhoneMask(phoneInput);
 
+    // Apply currency mask to Budget field (if present)
+    const budgetInput = form.querySelector<HTMLInputElement>('[name="Budget"]');
+    if (budgetInput) {
+      budgetInput.addEventListener('input', () => {
+        let v = budgetInput.value.replace(/\D/g, '');
+        if (!v) { budgetInput.value = ''; return; }
+        const num = (parseInt(v, 10) / 100).toFixed(2);
+        budgetInput.value = 'R$ ' + num.replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      });
+    }
+
     // Step navigation
     nextBtn.addEventListener('click', () => {
       const nome  = form.querySelector<HTMLInputElement>('[name="Nome"]');
@@ -355,12 +380,13 @@ const cleanPhone = phone.replace(/\D/g, '');
       if (submitBtn) submitBtn.disabled = true;
       if (btnText && btnLoad) { btnText.style.display = 'none'; btnLoad.style.display = 'block'; }
 
-      const nome   = (form.querySelector<HTMLInputElement>('[name="Nome"]')?.value || '').trim();
-      const whatsV = (form.querySelector<HTMLInputElement>('[name="WhatsApp"]')?.value || '').trim();
-      const emailV = (form.querySelector<HTMLInputElement>('[name="E-mail"]')?.value || '').trim();
-      const tipoV  = tipo?.value || '';
-      const dataV  = data?.value || '';
-      const convV  = conv?.value || '';
+      const nome     = (form.querySelector<HTMLInputElement>('[name="Nome"]')?.value || '').trim();
+      const whatsV   = (form.querySelector<HTMLInputElement>('[name="WhatsApp"]')?.value || '').trim();
+      const emailV   = (form.querySelector<HTMLInputElement>('[name="E-mail"]')?.value || '').trim();
+      const tipoV    = tipo?.value || '';
+      const dataV    = data?.value || '';
+      const convV    = conv?.value || '';
+      const budgetV  = (form.querySelector<HTMLInputElement>('[name="Budget"]')?.value || '').trim();
 
       // Build WhatsApp message
       const msg = `Olá! Me chamo ${nome}. Tenho interesse em ${tipoV} para ${convV} convidados na data ${dataV}.`;
@@ -377,6 +403,7 @@ const cleanPhone = phone.replace(/\D/g, '');
         'Tipo de evento': tipoV,
         'Data do evento': dataV,
         'Convidados':    convV,
+        ...(budgetV ? { 'Budget': budgetV } : {}),
         'Fonte':         buildFonte(tracking),
         'Data':          now.toLocaleDateString('pt-BR'),
         'Horário':       now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', hour12: false }),

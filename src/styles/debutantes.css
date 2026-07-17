@@ -288,9 +288,10 @@ html{scroll-behavior:smooth;overflow-x:hidden}
   .r-contato{grid-template-columns:1fr !important}
   .r-formgrid{grid-template-columns:1fr !important}
   .krispy-form-grid{grid-template-columns:1fr !important}
-  .r-galeria{grid-template-columns:1fr !important;grid-template-rows:auto !important;grid-auto-rows:auto !important}
-  .r-galeria>*{grid-row:auto !important;grid-column:auto !important;aspect-ratio:4/3}
-  .r-galeria>* img,.r-galeria>* video{width:100%;height:100%;object-fit:cover;display:block}
+  #gal-carousel{overflow:hidden !important;display:block !important}
+  #gal-track{display:flex !important;gap:3px !important}
+  .gal-slide{flex-shrink:0 !important;aspect-ratio:1/1 !important}
+  .gal-slide img{width:100%;height:100%;object-fit:cover;display:block}
 
   .r-sec{padding:72px 24px !important}
   .r-pad-inner{padding:56px 28px !important}

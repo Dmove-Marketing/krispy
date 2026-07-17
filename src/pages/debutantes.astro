@@ -357,42 +357,44 @@ import '../styles/debutantes.css';
     <span data-dc-tpl="135" style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 18px; display: block; font-weight: 600;">Galeria</span>
     <h2 data-dc-tpl="136" style="font-family: Georgia, serif; font-size: clamp(28px, 2.8vw, 44px); font-weight: 400; color: #2f1d13; line-height: 1.2; letter-spacing: -0.2px;">Inspire-se para criar a festa de 15 anos<br /><span data-dc-tpl="137" style="font-weight: 500; color: #A27D28;">que você sempre sonhou</span></h2>
   </div>
-  <div class="r-galeria" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px;">
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_671134228_18580679662057064_6267899199992899549_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_672401895_18580679812057064_5250719757016837744_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.13.53_PM_(3).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.18.52_PM_(8).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.27.04_PM_(2).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.58.57_PM_(1).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.51.13_PM_(4).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.53.35_PM_(2).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.56.32_PM_(1).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.57.45_PM_(1).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.27.03_PM.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-    </div>
-    <div style="overflow: hidden; aspect-ratio: 1/1;">
-      <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.58.58_PM.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+  <div id="gal-carousel" class="r-galeria" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px;">
+    <div id="gal-track" style="display: contents;">
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_671134228_18580679662057064_6267899199992899549_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/SaveClip.App_672401895_18580679812057064_5250719757016837744_n.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.13.53_PM_(3).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.18.52_PM_(8).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.27.04_PM_(2).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.58.57_PM_(1).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.51.13_PM_(4).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.53.35_PM_(2).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.56.32_PM_(1).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.57.45_PM_(1).webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.27.03_PM.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
+      <div class="gal-slide" style="overflow: hidden; aspect-ratio: 1/1;">
+        <img src="https://media.dmove.com.br/clients/krispy/photos/WhatsApp_Image_2026-07-14_at_4.58.58_PM.webp" alt="Festa de 15 anos Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      </div>
     </div>
   </div>
 
@@ -468,4 +470,52 @@ import '../styles/debutantes.css';
 </Base>
 <script>
   import '../scripts/debutantes.js';
+</script>
+<script is:inline>
+  (function () {
+    if (window.innerWidth > 768) return;
+    var GAP = 3;
+    var SPEED = 1.4;
+    var carousel = document.getElementById('gal-carousel');
+    var track = document.getElementById('gal-track');
+    if (!carousel || !track) return;
+    var originals = Array.from(track.querySelectorAll('.gal-slide'));
+
+    originals.forEach(function (s) { track.appendChild(s.cloneNode(true)); });
+
+    function setWidths() {
+      var w = carousel.offsetWidth;
+      var h = w; // 1:1
+      track.querySelectorAll('.gal-slide').forEach(function (s) {
+        s.style.width = w + 'px';
+        s.style.height = h + 'px';
+      });
+    }
+
+    function loopWidth() {
+      return (originals[0].offsetWidth + GAP) * originals.length;
+    }
+
+    var x = 0;
+    function tick() {
+      x += SPEED;
+      if (x >= loopWidth()) x -= loopWidth();
+      track.style.transform = 'translateX(-' + x + 'px)';
+      requestAnimationFrame(tick);
+    }
+
+    function init() {
+      if (!carousel.offsetWidth) { requestAnimationFrame(init); return; }
+      setWidths();
+      requestAnimationFrame(tick);
+    }
+
+    if (document.readyState === 'complete') {
+      requestAnimationFrame(init);
+    } else {
+      window.addEventListener('load', function () { requestAnimationFrame(init); });
+    }
+
+    window.addEventListener('resize', function () { setWidths(); x = 0; });
+  })();
 </script>

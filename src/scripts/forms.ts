@@ -9,12 +9,9 @@ const FIELD_LABELS: Record<string, string> = {
 };
 
 function buildFonte(tracking: Record<string, string>): string {
-  if (tracking.utm_source) {
-    let f = tracking.utm_source;
-    if (tracking.utm_medium) f += ` / ${tracking.utm_medium}`;
-    return f;
-  }
-  return tracking.landing_page || window.location.pathname;
+  const path = tracking.landing_page || window.location.pathname;
+  const slug = path.replace(/^\/+|\/+$/g, '') || 'home';
+  return `Landing page/${slug}`;
 }
 
 function validateForm(form: HTMLFormElement): boolean {

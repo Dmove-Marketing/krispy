@@ -8,9 +8,8 @@ const FIELD_LABELS: Record<string, string> = {
   mensagem:    'Mensagem',
 };
 
-function buildFonte(tracking: Record<string, string>): string {
-  const path = tracking.landing_page || window.location.pathname;
-  const slug = path.replace(/^\/+|\/+$/g, '') || 'home';
+function buildFonte(_tracking: Record<string, string>): string {
+  const slug = window.location.pathname.replace(/^\/+|\/+$/g, '') || 'home';
   return `Landing page/${slug}`;
 }
 

@@ -10,7 +10,8 @@ const FIELD_LABELS: Record<string, string> = {
 
 function buildFonte(_tracking: Record<string, string>): string {
   const slug = window.location.pathname.replace(/^\/+|\/+$/g, '') || 'home';
-  return `Landing page/${slug}`;
+  const query = window.location.search;
+  return `Landing page/${slug}${query}`;
 }
 
 function validateForm(form: HTMLFormElement): boolean {

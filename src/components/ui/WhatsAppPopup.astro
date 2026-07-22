@@ -215,7 +215,8 @@ const cleanPhone = phone.replace(/\D/g, '');
 
   function buildFonte(_tracking: Record<string, string>): string {
     const slug = window.location.pathname.replace(/^\/+|\/+$/g, '') || 'home';
-    return `Landing page/${slug}`;
+    const query = window.location.search;
+    return `Landing page/${slug}${query}`;
   }
 
   function applyPhoneMask(input: HTMLInputElement) {

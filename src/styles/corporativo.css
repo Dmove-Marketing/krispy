@@ -362,3 +362,31 @@ html{scroll-behavior:smooth;overflow-x:hidden}
   .r-nav-links{display:none !important}
   .r-burger{display:flex !important}
 }
+
+/* Pre-layout default widths for carousel items during load to prevent layout shifts */
+.exp-slide {
+  width: calc((100% - 6px) / 3);
+  aspect-ratio: 3 / 4;
+}
+.partner-slide {
+  width: calc((100% - 48px) / 3);
+  aspect-ratio: 1 / 1;
+}
+
+@media (max-width: 900px) {
+  .exp-slide {
+    width: calc((100% - 3px) / 2);
+  }
+  .partner-slide {
+    width: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .exp-slide {
+    width: 100%;
+  }
+  .partner-slide {
+    width: calc((100% - 24px) / 2);
+  }
+}

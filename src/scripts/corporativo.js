@@ -136,6 +136,11 @@
       const w = (carousel.offsetWidth - GAP * (visible - 1)) / visible;
       track.querySelectorAll(':scope > *').forEach((s) => {
         s.style.width = w + 'px';
+        if (carouselId === 'partners-carousel') {
+          s.style.height = w + 'px';
+        } else if (carouselId === 'exp-carousel') {
+          s.style.height = Math.round(w * 4 / 3) + 'px';
+        }
       });
     }
 
@@ -169,7 +174,7 @@
     window.addEventListener('resize', () => { setWidths(); x = 0; });
   }
 
-  initMarquee('exp-carousel', 'exp-track', 0.8, 1.4);
+  initMarquee('exp-carousel', 'exp-track', 0.8, 1.4, 1);
   initMarquee('partners-carousel', 'partners-track', 0.6, 1.1, 2);
 
   // ── Testimonials carousel ──────────────────────────────────────────

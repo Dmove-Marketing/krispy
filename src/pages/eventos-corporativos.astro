@@ -1,0 +1,472 @@
+---
+// Página: Eventos Corporativos — Krispy Buffet
+// Estrutura baseada em casamentos.astro / debutantes.astro (mesma identidade visual)
+// Depoimentos do Google ainda não recebidos — local reservado com placeholder visual
+// (.media-placeholder), pronto para receber o conteúdo real.
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import LeadForm from '../components/forms/LeadForm.astro';
+import Video from '../components/ui/Video.astro';
+import '../styles/corporativo.css';
+---
+
+<style is:global>
+  .hero-img { object-position: center 30%; }
+  @media(max-width:768px){
+    .hero-img { object-position: center 25%; }
+  }
+</style>
+
+<Base
+  title="Krispy - Eventos Corporativos"
+  ogImage="/images/og-corporativo.jpg"
+  whatsappTipoOptions={['Corporativo', 'Confraternização corporativa', 'Offsite corporativo', 'Outros']}
+  whatsappShowBudget={true}
+>
+<div style="font-family: Parkinsans, sans-serif; color: #f6f2ec; background: #2f1d13;">
+
+  <!-- ── NAV ───────────────────────────────────────────────────────── -->
+  <nav class="r-nav" style="position: fixed; top: 0px; left: 0px; right: 0px; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 24px 60px; background: transparent; border-bottom: 1px solid rgba(162, 125, 40, 0.25); transition: padding 0.4s, background 0.3s; box-shadow: none;">
+    <a href="#topo" style="text-decoration: none; margin-right: 48px; display: flex; align-items: center;">
+      <img src="https://media.dmove.com.br/clients/krispy/photos/logo_krispy.webp" alt="Krispy Buffet" style="height: 48px; width: auto;" />
+    </a>
+    <div class="r-nav-links" style="display: flex; align-items: center; gap: 40px;">
+      <a href="#sobre" class="scp0" style="font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: 500;">Sobre</a>
+      <a href="#estrutura" class="scp0" style="font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: 500;">Estrutura</a>
+      <a href="#gastronomia" class="scp0" style="font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: 500;">Gastronomia</a>
+      <a href="#galeria" class="scp0" style="font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: 500;">Galeria</a>
+      <a href="#contato" class="scp0" style="font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: 500;">Contato</a>
+      <a href="#contato" class="scp1" style="background: #A27D28; border: 1px solid #A27D28; color: rgb(255, 255, 255); padding: 11px 24px; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; text-decoration: none; font-weight: 600; transition: background 0.3s; border-radius: 6px;">Solicite orçamento</a>
+    </div>
+    <button aria-label="Abrir menu" class="r-burger" style="display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; padding: 4px;">
+      <span style="display: block; width: 24px; height: 1.5px; background: #f6f2ec;"></span>
+      <span style="display: block; width: 24px; height: 1.5px; background: #f6f2ec;"></span>
+      <span style="display: block; width: 24px; height: 1.5px; background: #f6f2ec;"></span>
+    </button>
+  </nav>
+
+  <!-- ── MENU MOBILE ───────────────────────────────────────────────── -->
+  <div class="r-mobile-menu" style="display: none; position: fixed; inset: 0px; z-index: 105; background: rgba(47, 29, 19, 0.98); backdrop-filter: blur(16px); flex-direction: column; align-items: center; justify-content: center; gap: 30px;">
+    <a href="#sobre" style="font-family: Georgia, serif; font-size: 30px; font-weight: 400; color: #f6f2ec; text-decoration: none; letter-spacing: 3px;">Sobre</a>
+    <a href="#estrutura" style="font-family: Georgia, serif; font-size: 30px; font-weight: 400; color: #f6f2ec; text-decoration: none; letter-spacing: 3px;">Estrutura</a>
+    <a href="#gastronomia" style="font-family: Georgia, serif; font-size: 30px; font-weight: 400; color: #f6f2ec; text-decoration: none; letter-spacing: 3px;">Gastronomia</a>
+    <a href="#galeria" style="font-family: Georgia, serif; font-size: 30px; font-weight: 400; color: #f6f2ec; text-decoration: none; letter-spacing: 3px;">Galeria</a>
+    <a href="#contato" style="font-family: Georgia, serif; font-size: 30px; font-weight: 400; color: #f6f2ec; text-decoration: none; letter-spacing: 3px;">Contato</a>
+    <a href="#contato" style="margin-top: 12px; background: #A27D28; color: rgb(255, 255, 255); padding: 14px 36px; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; text-decoration: none; border-radius: 6px;">Solicite orçamento</a>
+  </div>
+
+  <!-- ── HERO ──────────────────────────────────────────────────────── -->
+  <section id="topo" style="height: 100vh; min-height: 620px; position: relative; display: flex; align-items: flex-end; overflow: hidden; background: #2f1d13;">
+    <img src="https://media.dmove.com.br/clients/krispy/photos/hero_corporativo_resultado.webp" alt="Evento corporativo Krispy Buffet" fetchpriority="high" class="hero-img" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); animation: 12s ease-out 0s 1 normal forwards running heroZoom;" />
+    <div style="position: absolute; inset: 0px; background: linear-gradient(to top, rgba(21, 13, 7, 0.92) 0%, rgba(21, 13, 7, 0.45) 55%, rgba(21, 13, 7, 0.2) 100%);"></div>
+    <div class="r-hero" style="position: relative; z-index: 2; padding: 0px 60px 88px; max-width: 880px;">
+      <h1 style="font-family: Georgia, serif; font-size: clamp(34px, min(5.4vw, 6vh), 68px); font-weight: 400; color: #f6f2ec; line-height: 1.12; margin-bottom: 30px; letter-spacing: -0.3px;">Praticidade, estrutura e<br /><span style="font-weight: 500; color: #f6f2ec;">elegância para seu<br />evento corporativo</span></h1>
+      <p style="font-size: 16px; color: rgba(255, 255, 255, 0.72); line-height: 1.85; max-width: 520px; margin-bottom: 22px; font-weight: 300;">Reúna sua equipe em um espaço completo, com gastronomia própria e atendimento dedicado para tornar cada encontro um sucesso.</p>
+      <span style="font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: #ffffff; margin-bottom: 44px; display: block; font-weight: 500;">Corporativo • até 150 convidados • Campo Grande</span>
+      <div style="display: flex; gap: 22px; align-items: center; flex-wrap: wrap;">
+        <a href="#contato" class="scp2" style="background: #A27D28; color: rgb(255, 255, 255); padding: 17px 38px; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: background 0.3s, transform 0.3s; border-radius: 6px;">Solicite orçamento</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AUTORIDADE ────────────────────────────────────────────────── -->
+  <div class="r-autoridade" style="background: linear-gradient(135deg, #A27D28 0%, #A27D28 45%, #A27D28 100%); display: flex; justify-content: center; flex-wrap: nowrap; box-shadow: rgba(162, 125, 40, 0.25) 0px 2px 14px;">
+    <div class="r-stat" style="padding: 28px 56px; text-align: center; border-right: 1px solid rgba(255, 255, 255, 0.28); flex: 0 0 auto; white-space: nowrap;">
+      <span style="font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: rgb(255, 255, 255); display: block; font-weight: 600;">Avaliação 4,8 no Google</span>
+    </div>
+    <div class="r-stat" style="padding: 28px 56px; text-align: center; flex: 0 0 auto; white-space: nowrap;">
+      <span style="font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: rgb(255, 255, 255); display: block; font-weight: 600;">Espaço + Buffet</span>
+    </div>
+  </div>
+
+  <!-- ── SOBRE ─────────────────────────────────────────────────────── -->
+  <section id="sobre" class="r-grid2 sobre-corp" style="display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; scroll-margin-top: 80px;">
+    <div class="r-media sobre-corp__video" style="min-height: 520px; position: relative; overflow: hidden;">
+      <Video
+        src="https://media.dmove.com.br/clients/krispy/videos/video_corporativo.webm"
+        poster="/images/video-poster-casamentos.jpg"
+        title="Krispy Buffet — Eventos Corporativos"
+        description="Conheça o Krispy Buffet, espaço para eventos corporativos em Campo Grande."
+        uploadDate="2025-01-01"
+        duration="PT1M"
+        class="sobre-corp__player"
+      />
+    </div>
+    <div data-reveal="" class="r-pad-inner" style="background: #faf5ef; border-left: 4px solid #A27D28; padding: 84px 72px; display: flex; flex-direction: column; justify-content: center; opacity: 1; transform: none; transition: opacity 0.8s, transform 0.8s;">
+      <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 22px; display: block; font-weight: 600;">Sobre o Krispy</span>
+      <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.6vw, 42px); font-weight: 400; color: #2f1d13; line-height: 1.22; margin-bottom: 28px; letter-spacing: -0.2px;">Excelência em cada etapa<br /><span style="font-weight: 500; color: #A27D28;">do seu evento corporativo</span></h2>
+      <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300; margin-bottom: 24px;">O Krispy reúne espaço e buffet em um único lugar para simplificar a organização dos seus eventos corporativos, com atendimento dedicado do primeiro contato ao encerramento.</p>
+      <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300;">Seja para uma confraternização de equipe, um treinamento, um lançamento ou uma reunião especial, oferecemos estrutura completa, gastronomia de qualidade e um atendimento próximo para que sua empresa se preocupe apenas em aproveitar o momento.</p>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- ── DIFERENCIAIS ──────────────────────────────────────────────── -->
+  <section class="r-sec" style="background: #ffffff; padding: 104px 60px;">
+    <div data-reveal style="max-width: 820px; margin: 0px auto 60px; text-align: center;">
+      <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 20px; display: block; font-weight: 600;">Diferenciais</span>
+      <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.8vw, 44px); font-weight: 400; color: #2f1d13; line-height: 1.2; letter-spacing: -0.2px;">Por que as empresas<br /><span style="font-weight: 500; color: #A27D28;">escolhem o Krispy?</span></h2>
+    </div>
+    <div class="r-grid3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0px auto;">
+      <div data-reveal class="corp-card" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.2); overflow: hidden;">
+        <div style="aspect-ratio: 4 / 3; overflow: hidden;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/espaco-buffet_corporativo_resultado.webp" alt="Espaço e buffet integrados — Krispy Buffet" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+        </div>
+        <div style="padding: 34px 30px 38px;">
+          <h3 style="font-family: Georgia, serif; font-size: 16px; font-weight: 500; color: #2f1d13; margin-bottom: 12px; line-height: 1.25;">Espaço e buffet integrados</h3>
+          <p style="font-size: 14px; line-height: 1.75; color: rgba(47, 29, 19, 0.7); font-weight: 300;">Mais praticidade na organização, com um único fornecedor para cuidar dos principais serviços do evento.</p>
+        </div>
+      </div>
+      <div data-reveal class="corp-card" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.2); overflow: hidden;">
+        <div style="aspect-ratio: 4 / 3; overflow: hidden;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/gastronomia-propria_corporativo_resultado.webp" alt="Gastronomia própria — Krispy Buffet" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+        </div>
+        <div style="padding: 34px 30px 38px;">
+          <h3 style="font-family: Georgia, serif; font-size: 16px; font-weight: 500; color: #2f1d13; margin-bottom: 12px; line-height: 1.25;">Gastronomia própria</h3>
+          <p style="font-size: 14px; line-height: 1.75; color: rgba(47, 29, 19, 0.7); font-weight: 300;">Cardápios variados preparados por uma equipe especializada para diferentes formatos de eventos.</p>
+        </div>
+      </div>
+      <div data-reveal class="corp-card" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.2); overflow: hidden;">
+        <div style="aspect-ratio: 4 / 3; overflow: hidden;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/custo-beneficio_corporativo_resultado.webp" alt="Excelente custo-benefício — Krispy Buffet" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+        </div>
+        <div style="padding: 34px 30px 38px;">
+          <h3 style="font-family: Georgia, serif; font-size: 16px; font-weight: 500; color: #2f1d13; margin-bottom: 12px; line-height: 1.25;">Excelente custo-benefício</h3>
+          <p style="font-size: 14px; line-height: 1.75; color: rgba(47, 29, 19, 0.7); font-weight: 300;">Estrutura completa, atendimento personalizado e investimento inteligente para sua empresa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIÊNCIA ───────────────────────────────────────────────── -->
+  <section class="r-sec" style="background: #2f1d13; padding: 108px 60px;">
+    <div data-reveal style="max-width: 760px; margin: 0px auto 56px; text-align: center;">
+      <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 20px; display: block; font-weight: 600;">Experiência Krispy</span>
+      <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.8vw, 44px); font-weight: 400; color: #f6f2ec; line-height: 1.2; margin-bottom: 26px; letter-spacing: -0.2px;">Enquanto sua equipe<br class="br-m" />aproveita o evento,<br /><span style="font-weight: 500; color: #A27D28;">nós cuidamos de toda<br class="br-m" />a operação</span></h2>
+      <p style="font-size: 16px; line-height: 1.9; color: rgba(255, 255, 255, 0.6); font-weight: 300;">Da organização ao atendimento durante o evento, nossa equipe acompanha cada etapa para garantir uma experiência agradável, organizada e sem preocupações.</p>
+    </div>
+    <div id="exp-carousel" style="max-width: 1100px; margin: 0 auto 48px; overflow: hidden;">
+      <div id="exp-track" style="display: flex; gap: 3px;">
+        <div class="exp-slide" style="aspect-ratio: 3 / 4; overflow: hidden; flex-shrink: 0;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-experiencia_corporativo05_resultado.webp" alt="Evento corporativo Krispy" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+        </div>
+        <div class="exp-slide" style="aspect-ratio: 3 / 4; overflow: hidden; flex-shrink: 0;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-experiencia_corporativo04_resultado.webp" alt="Evento corporativo Krispy" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+        </div>
+        <div class="exp-slide" style="aspect-ratio: 3 / 4; overflow: hidden; flex-shrink: 0;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-experiencia_corporativo03_resultado.webp" alt="Evento corporativo Krispy" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+        </div>
+        <div class="exp-slide" style="aspect-ratio: 3 / 4; overflow: hidden; flex-shrink: 0;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-experiencia_corporativo02_resultado.webp" alt="Evento corporativo Krispy" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+        </div>
+        <div class="exp-slide" style="aspect-ratio: 3 / 4; overflow: hidden; flex-shrink: 0;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-experiencia_corporativo01_resultado.webp" alt="Evento corporativo Krispy" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ESTRUTURA ─────────────────────────────────────────────────── -->
+  <section id="estrutura" class="r-sec" style="background: #ffffff; padding: 104px 60px; scroll-margin-top: 80px;">
+    <div data-reveal style="max-width: 840px; margin: 0px auto 60px; text-align: center;">
+      <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 20px; display: block; font-weight: 600;">Estrutura</span>
+      <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.8vw, 44px); font-weight: 400; color: #2f1d13; line-height: 1.2; margin-bottom: 24px; letter-spacing: -0.2px;">Estrutura completa para eventos corporativos<br /><span style="font-weight: 500; color: #A27D28;">de diferentes formatos</span></h2>
+      <p style="font-size: 16px; line-height: 1.85; color: rgba(47, 29, 19, 0.7); font-weight: 300; max-width: 600px; margin: 0px auto;">Um ambiente preparado para receber empresas com conforto, praticidade e toda a infraestrutura necessária para um evento bem executado.</p>
+    </div>
+    <div class="r-grid4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; max-width: 1140px; margin: 0px auto;">
+      <div data-reveal class="icon-card" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.18); padding: 42px 30px; text-align: center;">
+        <div class="icon-circle" style="width: 56px; height: 56px; border: 1px solid rgba(162, 125, 40, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0px auto 22px;"><svg viewBox="0 0 24 24" fill="none" stroke="#A27D28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><rect x="3" y="4" width="18" height="14" rx="1"></rect><path d="M3 18h18M8 21h8"></path></svg></div>
+        <span style="font-size: 13px; font-weight: 500; color: #2f1d13; letter-spacing: 0.3px; line-height: 1.5; display: block;">Salão interno moderno<br />e climatizado</span>
+      </div>
+      <div data-reveal class="icon-card" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.18); padding: 42px 30px; text-align: center;">
+        <div class="icon-circle" style="width: 56px; height: 56px; border: 1px solid rgba(162, 125, 40, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0px auto 22px;"><svg viewBox="0 0 24 24" fill="none" stroke="#A27D28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><path d="M12 2l2.4 5.5L20 8l-4 4 1 6-5-3-5 3 1-6-4-4 5.6-.5z"></path></svg></div>
+        <span style="font-size: 13px; font-weight: 500; color: #2f1d13; letter-spacing: 0.3px; line-height: 1.5; display: block;">Ambiente sofisticado<br />e versátil</span>
+      </div>
+      <div data-reveal class="icon-card" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.18); padding: 42px 30px; text-align: center;">
+        <div class="icon-circle" style="width: 56px; height: 56px; border: 1px solid rgba(162, 125, 40, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0px auto 22px;"><svg viewBox="0 0 24 24" fill="none" stroke="#A27D28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+        <span style="font-size: 13px; font-weight: 500; color: #2f1d13; letter-spacing: 0.3px; line-height: 1.5; display: block;">Capacidade para até<br />150 convidados</span>
+      </div>
+      <div data-reveal class="icon-card" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.18); padding: 42px 30px; text-align: center;">
+        <div class="icon-circle" style="width: 56px; height: 56px; border: 1px solid rgba(162, 125, 40, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0px auto 22px;"><svg viewBox="0 0 24 24" fill="none" stroke="#A27D28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+        <span style="font-size: 13px; font-weight: 500; color: #2f1d13; letter-spacing: 0.3px; line-height: 1.5; display: block;">Fácil acesso e<br />localização privilegiada</span>
+      </div>
+      <div data-reveal class="icon-card" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.18); padding: 42px 30px; text-align: center;">
+        <div class="icon-circle" style="width: 56px; height: 56px; border: 1px solid rgba(162, 125, 40, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0px auto 22px;"><svg viewBox="0 0 24 24" fill="none" stroke="#A27D28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><path d="M3 11h18M5 11a7 7 0 0 1 14 0M12 3v2M4 21h16"></path></svg></div>
+        <span style="font-size: 13px; font-weight: 500; color: #2f1d13; letter-spacing: 0.3px; line-height: 1.5; display: block;">Buffet<br />próprio</span>
+      </div>
+      <div data-reveal class="icon-card" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.18); padding: 42px 30px; text-align: center;">
+        <div class="icon-circle" style="width: 56px; height: 56px; border: 1px solid rgba(162, 125, 40, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0px auto 22px;"><svg viewBox="0 0 24 24" fill="none" stroke="#A27D28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6z"></path><path d="M6 17h12"></path></svg></div>
+        <span style="font-size: 13px; font-weight: 500; color: #2f1d13; letter-spacing: 0.3px; line-height: 1.5; display: block;">Equipe de cozinha<br />especializada</span>
+      </div>
+      <div data-reveal class="icon-card" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.18); padding: 42px 30px; text-align: center;">
+        <div class="icon-circle" style="width: 56px; height: 56px; border: 1px solid rgba(162, 125, 40, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0px auto 22px;"><svg viewBox="0 0 24 24" fill="none" stroke="#A27D28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><path d="M12 3v6M5 21h14M12 9a7 7 0 0 0-7 7h14a7 7 0 0 0-7-7z"></path></svg></div>
+        <span style="font-size: 13px; font-weight: 500; color: #2f1d13; letter-spacing: 0.3px; line-height: 1.5; display: block;">Garçons<br />treinados</span>
+      </div>
+      <div data-reveal class="icon-card" style="background: #ffffff; border: 1px solid rgba(162, 125, 40, 0.18); padding: 42px 30px; text-align: center;">
+        <div class="icon-circle" style="width: 56px; height: 56px; border: 1px solid rgba(162, 125, 40, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0px auto 22px;"><svg viewBox="0 0 24 24" fill="none" stroke="#A27D28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path></svg></div>
+        <span style="font-size: 13px; font-weight: 500; color: #2f1d13; letter-spacing: 0.3px; line-height: 1.5; display: block;">Estrutura completa para<br />eventos empresariais</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GASTRONOMIA ───────────────────────────────────────────────── -->
+  <section id="gastronomia" class="r-grid2" style="display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; scroll-margin-top: 80px;">
+    <div class="r-media gastronomia-slideshow" style="background: #2f1d13; min-height: 480px; position: relative; overflow: hidden;">
+      <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-gastronomia_corporativo05_resultado.webp" alt="Gastronomia corporativa Krispy" loading="lazy" style="--i:0" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-gastronomia_corporativo04_resultado.webp" alt="Gastronomia corporativa Krispy" loading="lazy" style="--i:1" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-gastronomia_corporativo03_resultado.webp" alt="Gastronomia corporativa Krispy" loading="lazy" style="--i:2" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-gastronomia_corporativo02_resultado.webp" alt="Gastronomia corporativa Krispy" loading="lazy" style="--i:3" />
+      <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-gastronomia_corporativo01_resultado.webp" alt="Gastronomia corporativa Krispy" loading="lazy" style="--i:4" />
+    </div>
+    <div data-reveal class="r-pad-inner" style="background: #faf5ef; border-left: 4px solid #A27D28; padding: 84px 72px; display: flex; flex-direction: column; justify-content: center;">
+      <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 22px; display: block; font-weight: 600;">Gastronomia</span>
+      <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.6vw, 42px); font-weight: 400; color: #2f1d13; line-height: 1.22; margin-bottom: 28px; letter-spacing: -0.2px;">Uma experiência gastronômica<br /><span style="font-weight: 500; color: #A27D28;">preparada para surpreender</span></h2>
+      <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300; margin-bottom: 28px;">Do coffee break ao almoço executivo, do churrasco à feijoada, nossos cardápios são preparados para atender diferentes estilos de eventos corporativos, sempre com qualidade, sabor e excelente apresentação.</p>
+      <div class="gastro-tags" style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <span style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A27D28; border: 1px solid rgba(162, 125, 40, 0.5); background: rgba(162, 125, 40, 0.06); padding: 8px 16px; font-weight: 500;">Coffee break</span>
+        <span style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A27D28; border: 1px solid rgba(162, 125, 40, 0.5); background: rgba(162, 125, 40, 0.06); padding: 8px 16px; font-weight: 500;">Almoço executivo</span>
+        <span style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A27D28; border: 1px solid rgba(162, 125, 40, 0.5); background: rgba(162, 125, 40, 0.06); padding: 8px 16px; font-weight: 500;">Churrasco</span>
+        <span style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A27D28; border: 1px solid rgba(162, 125, 40, 0.5); background: rgba(162, 125, 40, 0.06); padding: 8px 16px; font-weight: 500;">Feijoada</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HAPPY HOUR + FEIJOADA ─────────────────────────────────────── -->
+  <section class="r-grid2" style="display: grid; grid-template-columns: 1fr 1fr; min-height: 580px;">
+    <div data-reveal class="r-pad-inner" style="background: #faf5ef; border-right: 4px solid #A27D28; padding: 84px 72px; display: flex; flex-direction: column; justify-content: center; order: 1;">
+      <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 22px; display: block; font-weight: 600;">Confraternizações</span>
+      <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.6vw, 42px); font-weight: 400; color: #2f1d13; line-height: 1.22; margin-bottom: 28px; letter-spacing: -0.2px;">O espaço ideal para celebrar<br /><span style="font-weight: 500; color: #A27D28;">pessoas e conquistas</span></h2>
+      <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300; margin-bottom: 24px;">Nem todo evento corporativo acontece em uma sala de reunião. O Krispy também é o lugar ideal para confraternizações descontraídas, happy hours, churrascos corporativos e feijoadas empresariais.</p>
+      <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300;">Com gastronomia própria, ambiente confortável e uma equipe preparada para cuidar de todos os detalhes, sua empresa cria momentos de integração que valorizam colaboradores, clientes e parceiros.</p>
+    </div>
+    <div class="r-media" style="background: #2f1d13; min-height: 480px; position: relative; overflow: hidden; order: 2;">
+      <img src="https://media.dmove.com.br/clients/krispy/photos/happy-hour_corporativo_resultado.webp" alt="Happy hour e feijoada corporativa — Krispy Buffet" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+    </div>
+  </section>
+
+  <!-- ── PARCEIROS ─────────────────────────────────────────────────── -->
+  <section class="r-sec" style="background: #ffffff; padding: 96px 60px;">
+    <div data-reveal style="max-width: 760px; margin: 0px auto 48px; text-align: center;">
+      <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 18px; display: block; font-weight: 600;">Parceiros</span>
+      <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.8vw, 44px); font-weight: 400; color: #2f1d13; line-height: 1.2; letter-spacing: -0.2px;">A escolha de empresas que<br /><span style="font-weight: 500; color: #A27D28;">valorizam bons eventos</span></h2>
+    </div>
+    <div id="partners-carousel" style="max-width: 1100px; margin: 0 auto; overflow: hidden;">
+      <div id="partners-track" style="display: flex; gap: 24px;">
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo01_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo02_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo03_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo04_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo05_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo06_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo07_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo08_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo09_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo10_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo11_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo12_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo13_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo14_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo15_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo16_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo17_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo18_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo19_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo20_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo21_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo22_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo23_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo24_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo25_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo26_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo27_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo28_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+        <div class="partner-slide" style="aspect-ratio: 1 / 1; overflow: hidden; flex-shrink: 0; background: #faf5ef; border: 1px solid rgba(162, 125, 40, 0.15); display: flex; align-items: center; justify-content: center; padding: 16px;">
+          <img src="https://media.dmove.com.br/clients/krispy/photos/logo_corporativo29_resultado.webp" alt="Logo parceiro Krispy Corporativo" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DEPOIMENTOS ───────────────────────────────────────────────── -->
+  <section class="r-sec" style="background: #2f1d13; padding: 114px 60px;">
+    <div style="text-align: center; margin-bottom: 54px;">
+      <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 18px; display: block; font-weight: 600;">Depoimentos</span>
+      <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.8vw, 44px); font-weight: 400; color: rgb(255, 255, 255); line-height: 1.2; letter-spacing: -0.2px;">Confiança construída<br /><span style="font-weight: 500; color: #A27D28;">em cada evento realizado</span></h2>
+    </div>
+    <div class="r-dep-wrapper" style="position: relative; max-width: 1200px; margin: 0px auto;">
+      <button aria-label="Anterior" class="r-depbtn" style="position: absolute; top: 50%; left: -22px; transform: translateY(-50%); background: rgb(255, 255, 255); color: #A27D28; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 14px;">‹</button>
+      <div class="r-deptrack" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 0px; scrollbar-width: none;">
+        <div style="scroll-snap-align: start; flex: 0 0 calc(33.333% - 14px); min-width: 300px; background: #ffffff; padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; text-align: center; border-top: 3px solid #A27D28; box-sizing: border-box;">
+          <p style="font-weight: 300; color: rgba(47, 29, 19, 0.7); margin-bottom: 24px; line-height: 1.8; font-family: Georgia, serif; font-size: 19px;">Ótimo lugar para festas empresariais.</p>
+          <span style="font-weight: 600; color: #A27D28; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Guilherme Monteiro</span>
+        </div>
+        <div style="scroll-snap-align: start; flex: 0 0 calc(33.333% - 14px); min-width: 300px; background: #ffffff; padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; text-align: center; border-top: 3px solid #A27D28; box-sizing: border-box;">
+          <p style="font-weight: 300; color: rgba(47, 29, 19, 0.7); margin-bottom: 24px; line-height: 1.8; font-family: Georgia, serif; font-size: 19px;">Lugar mais top de Campo Grande, para uma confraternização!!</p>
+          <span style="font-weight: 600; color: #A27D28; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Felipe Kemp</span>
+        </div>
+        <div style="scroll-snap-align: start; flex: 0 0 calc(33.333% - 14px); min-width: 300px; background: #ffffff; padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; text-align: center; border-top: 3px solid #A27D28; box-sizing: border-box;">
+          <p style="font-weight: 300; color: rgba(47, 29, 19, 0.7); margin-bottom: 24px; line-height: 1.8; font-family: Georgia, serif; font-size: 19px;">Ótimo local, aconchegante, boa arquitetura, boa distribuição dos espaços, muito bom gosto para pequenas reuniões.</p>
+          <span style="font-weight: 600; color: #A27D28; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Arq Joaquim Lopes</span>
+        </div>
+        <div style="scroll-snap-align: start; flex: 0 0 calc(33.333% - 14px); min-width: 300px; background: #ffffff; padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; text-align: center; border-top: 3px solid #A27D28; box-sizing: border-box;">
+          <p style="font-weight: 300; color: rgba(47, 29, 19, 0.7); margin-bottom: 24px; line-height: 1.8; font-family: Georgia, serif; font-size: 19px;">Excelente casa de eventos, tudo de alto padrão.</p>
+          <span style="font-weight: 600; color: #A27D28; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Jonadir Barros Medeiros</span>
+        </div>
+        <div style="scroll-snap-align: start; flex: 0 0 calc(33.333% - 14px); min-width: 300px; background: #ffffff; padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; text-align: center; border-top: 3px solid #A27D28; box-sizing: border-box;">
+          <p style="font-weight: 300; color: rgba(47, 29, 19, 0.7); margin-bottom: 24px; line-height: 1.8; font-family: Georgia, serif; font-size: 19px;">Amplo espaço para eventos. Excelente atendimento.</p>
+          <span style="font-weight: 600; color: #A27D28; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Victoria Mauricio Delvizio</span>
+        </div>
+        <div style="scroll-snap-align: start; flex: 0 0 calc(33.333% - 14px); min-width: 300px; background: #ffffff; padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; text-align: center; border-top: 3px solid #A27D28; box-sizing: border-box;">
+          <p style="font-weight: 300; color: rgba(47, 29, 19, 0.7); margin-bottom: 24px; line-height: 1.8; font-family: Georgia, serif; font-size: 19px;">Fizemos um evento para 100 pessoas. O atendimento foi ótimo. O espaço é muito bonito e fácil de decorar, bem acolhedor. A comida estava bem temperada, no ponto certo, farta e muito gostosa. Recebemos bastante elogios.</p>
+          <span style="font-weight: 600; color: #A27D28; font-size: 11px; letter-spacing: 3px; text-transform: uppercase;">Denise Falcão</span>
+        </div>
+      </div>
+      <button aria-label="Próximo" class="r-depbtn" style="position: absolute; top: 50%; right: -22px; transform: translateY(-50%); background: rgb(255, 255, 255); color: #A27D28; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 14px;">›</button>
+      <div class="dep-nav-mobile">
+        <button class="dep-nav-btn dep-nav-prev" aria-label="Anterior">‹</button>
+        <button class="dep-nav-btn dep-nav-next" aria-label="Próximo">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALERIA ───────────────────────────────────────────────────── -->
+  <div id="galeria" data-reveal class="r-sec" style="background: #ffffff; text-align: center; padding: 104px 60px 48px; scroll-margin-top: 80px;">
+    <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 18px; display: block; font-weight: 600;">Galeria</span>
+    <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.8vw, 44px); font-weight: 400; color: #2f1d13; line-height: 1.2; letter-spacing: -0.2px;">Conheça o espaço<br class="br-m" />onde sua empresa<br /><span style="font-weight: 500; color: #A27D28;">pode realizar<br class="br-m" />grandes encontros</span></h2>
+  </div>
+  <div class="r-galeria" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px;">
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo01_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo02_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo03_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo04_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo05_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo06_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo07_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo08_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo09_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo10_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo11_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+    <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo12_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+  </div>
+
+  <!-- ── CONTATO ───────────────────────────────────────────────────── -->
+  <section id="contato" class="r-contato" style="background: #2f1d13; display: grid; grid-template-columns: 1fr 1.2fr; scroll-margin-top: 80px;">
+    <div data-reveal class="r-contato-info r-pad-inner" style="padding: 84px 60px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255, 255, 255, 0.08);">
+      <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 20px; display: block; font-weight: 600;">Próximo passo</span>
+      <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.6vw, 42px); font-weight: 400; color: #f6f2ec; line-height: 1.22; margin-bottom: 22px; letter-spacing: -0.2px;">Vamos planejar o<br />próximo evento<br /><span style="font-weight: 500; color: #A27D28;">da sua empresa?</span></h2>
+      <p style="font-size: 15px; line-height: 1.85; color: rgba(255, 255, 255, 0.55); font-weight: 300;">Preencha o formulário e receba um orçamento personalizado.</p>
+    </div>
+    <div class="r-pad-inner" style="padding: 64px 60px; display: flex; flex-direction: column; justify-content: center;">
+      <LeadForm
+        formId="lead-form"
+        project={config.project_slug}
+        submitUrl={config.forms['lead-form'].webhooks[0]}
+        redirectUrl={config.forms['lead-form'].redirect_on_success}
+        submitText="Solicitar orçamento"
+        prefix="krispy"
+        honeypot
+        fields={[
+          { name: 'nome',        type: 'text',   placeholder: 'Seu nome completo',   required: true },
+          { name: 'telefone',    type: 'tel',    placeholder: '(67) 9 0000-0000',    required: true, mask: 'phone' },
+          { name: 'email',       type: 'email',  placeholder: 'seu@email.com',       required: true },
+          { name: 'Empresa',     type: 'text',   placeholder: 'Nome da empresa',     required: true },
+          { name: 'data',        type: 'date',   placeholder: 'Data do evento',      required: true },
+          { name: 'convidados',  type: 'number', placeholder: 'Nº de convidados',    required: true },
+          { name: 'tipo_evento', type: 'hidden', value: 'Corporativo' },
+          { name: 'Budget',      type: 'text',   placeholder: 'Quanto você está disposto a investir?', required: false, full: true, mask: 'currency' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- ── LOCALIZAÇÃO ───────────────────────────────────────────────── -->
+  <section style="background: #ffffff;">
+    <div data-reveal class="r-sec" style="text-align: center; padding: 80px 60px 40px;">
+      <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 18px; display: block; font-weight: 600;">Localização</span>
+      <h2 style="font-family: Georgia, serif; font-size: clamp(26px, 2.4vw, 40px); font-weight: 400; color: #2f1d13; line-height: 1.2; margin-bottom: 14px; letter-spacing: -0.2px;">Fácil acesso para<br /><span style="font-weight: 500; color: #A27D28;">reunir toda a sua equipe</span></h2>
+      <p style="font-size: 15px; color: rgba(47, 29, 19, 0.7); font-weight: 300;">R. Corumbá, 439 — Monte Castelo, Campo Grande / MS · 79011-050</p>
+    </div>
+    <div style="height: 400px; position: relative;">
+      <iframe src="https://maps.google.com/maps?q=R.%20Corumb%C3%A1%2C%20439%20-%20Monte%20Castelo%2C%20Campo%20Grande%20-%20MS&t=m&z=15&output=embed&iwloc=near" title="Krispy Buffet — Localização" loading="lazy" style="width: 100%; height: 100%; border: 0px; display: block; filter: grayscale(0.2) contrast(1.05);"></iframe>
+      <div style="position: absolute; inset: 0;"></div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────────────────────── -->
+  <footer class="r-footer" style="background: #1a0e07; padding: 56px 60px; border-top: 3px solid #A27D28; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 48px;">
+    <p style="font-size: 11px; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px; justify-self: end;">© 2026 Krispy Buffet — Todos os direitos reservados.</p>
+    <a href="#topo" style="text-decoration: none; display: flex; align-items: center;">
+      <img src="https://media.dmove.com.br/clients/krispy/photos/logo_krispy.webp" alt="Krispy Buffet" style="height: 48px; width: auto;" />
+    </a>
+    <div style="display: flex; align-items: center; gap: 10px; justify-self: start;">
+      <span style="font-size: 11px; color: rgba(255, 255, 255, 0.3); letter-spacing: 0.3px;">Desenvolvido por:</span>
+      <a href="http://dmove.com.br" target="_blank" rel="noopener noreferrer" class="scp8" style="text-decoration: none; display: flex; align-items: center;">
+        <img src="https://media.dmove.com.br/clients/dmove/photos/logo-dmove.webp" alt="DMove" style="height: 60px; width: auto; opacity: 0.5;" />
+      </a>
+    </div>
+  </footer>
+
+</div>
+</Base>
+<script>
+  import '../scripts/corporativo.js';
+</script>

@@ -339,8 +339,11 @@ html{scroll-behavior:smooth;overflow-x:hidden}
   .r-sec{padding:72px 24px !important}
   .r-pad-inner{padding:56px 28px !important}
   .r-media{min-height:280px !important;order:-1 !important}
+  .r-media.sobre-corp__video,
+  .r-media.gastronomia-slideshow,
+  .r-media.happy-corp__media{order:2 !important}
   .r-contato-info{border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08) !important}
-  .r-deptrack>div{flex:0 0 86% !important;min-width:0 !important}
+  .r-deptrack>div{flex:0 0 100% !important;min-width:0 !important}
   .r-depbtn{display:none !important}
   .dep-nav-mobile{display:flex !important}
   .r-footer{padding:40px 24px !important;display:flex !important;flex-direction:column !important;align-items:center !important;gap:24px !important;text-align:center !important;grid-template-columns:unset !important}

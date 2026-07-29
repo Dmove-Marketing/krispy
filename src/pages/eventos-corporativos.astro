@@ -11,9 +11,9 @@ import '../styles/corporativo.css';
 ---
 
 <style is:global>
-  .hero-img { object-position: center 30%; }
+  .hero-img { object-position: center 75%; }
   @media(max-width:768px){
-    .hero-img { object-position: center 25%; }
+    .hero-img { object-position: center 80%; }
   }
 </style>
 
@@ -81,7 +81,7 @@ import '../styles/corporativo.css';
 
   <!-- ── SOBRE ─────────────────────────────────────────────────────── -->
   <section id="sobre" class="r-grid2 sobre-corp" style="display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; scroll-margin-top: 80px;">
-    <div class="r-media sobre-corp__video" style="min-height: 520px; position: relative; overflow: hidden;">
+    <div class="r-media sobre-corp__video" style="min-height: 520px; position: relative; overflow: hidden; order: 2;">
       <Video
         src="https://media.dmove.com.br/clients/krispy/videos/video_corporativo.webm"
         poster="/images/video-poster-casamentos.jpg"
@@ -92,7 +92,7 @@ import '../styles/corporativo.css';
         class="sobre-corp__player"
       />
     </div>
-    <div data-reveal="" class="r-pad-inner" style="background: #faf5ef; border-left: 4px solid #A27D28; padding: 84px 72px; display: flex; flex-direction: column; justify-content: center; opacity: 1; transform: none; transition: opacity 0.8s, transform 0.8s;">
+    <div data-reveal="" class="r-pad-inner" style="background: #faf5ef; border-left: 4px solid #A27D28; padding: 84px 72px; display: flex; flex-direction: column; justify-content: center; opacity: 1; transform: none; transition: opacity 0.8s, transform 0.8s; order: 1;">
       <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 22px; display: block; font-weight: 600;">Sobre o Krispy</span>
       <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.6vw, 42px); font-weight: 400; color: #2f1d13; line-height: 1.22; margin-bottom: 28px; letter-spacing: -0.2px;">Excelência em cada etapa<br /><span style="font-weight: 500; color: #A27D28;">do seu evento corporativo</span></h2>
       <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300; margin-bottom: 24px;">O Krispy reúne espaço e buffet em um único lugar para simplificar a organização dos seus eventos corporativos, com atendimento dedicado do primeiro contato ao encerramento.</p>
@@ -145,7 +145,7 @@ import '../styles/corporativo.css';
   <section class="r-sec" style="background: #2f1d13; padding: 108px 60px;">
     <div data-reveal style="max-width: 760px; margin: 0px auto 56px; text-align: center;">
       <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 20px; display: block; font-weight: 600;">Experiência Krispy</span>
-      <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.8vw, 44px); font-weight: 400; color: #f6f2ec; line-height: 1.2; margin-bottom: 26px; letter-spacing: -0.2px;">Enquanto sua equipe<br class="br-m" />aproveita o evento,<br /><span style="font-weight: 500; color: #A27D28;">nós cuidamos de toda<br class="br-m" />a operação</span></h2>
+      <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.8vw, 44px); font-weight: 400; color: #f6f2ec; line-height: 1.2; margin-bottom: 26px; letter-spacing: -0.2px;">Enquanto sua equipe <br class="br-m" />aproveita o evento,<br /><span style="font-weight: 500; color: #A27D28;">nós cuidamos de toda <br class="br-m" />a operação</span></h2>
       <p style="font-size: 16px; line-height: 1.9; color: rgba(255, 255, 255, 0.6); font-weight: 300;">Da organização ao atendimento durante o evento, nossa equipe acompanha cada etapa para garantir uma experiência agradável, organizada e sem preocupações.</p>
     </div>
     <div id="exp-carousel" style="max-width: 1100px; margin: 0 auto 48px; overflow: hidden;">
@@ -214,14 +214,14 @@ import '../styles/corporativo.css';
 
   <!-- ── GASTRONOMIA ───────────────────────────────────────────────── -->
   <section id="gastronomia" class="r-grid2" style="display: grid; grid-template-columns: 1fr 1fr; min-height: 580px; scroll-margin-top: 80px;">
-    <div class="r-media gastronomia-slideshow" style="background: #2f1d13; min-height: 480px; position: relative; overflow: hidden;">
+    <div class="r-media gastronomia-slideshow" style="background: #2f1d13; min-height: 480px; position: relative; overflow: hidden; order: 2;">
       <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-gastronomia_corporativo05_resultado.webp" alt="Gastronomia corporativa Krispy" loading="lazy" style="--i:0" />
       <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-gastronomia_corporativo04_resultado.webp" alt="Gastronomia corporativa Krispy" loading="lazy" style="--i:1" />
       <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-gastronomia_corporativo03_resultado.webp" alt="Gastronomia corporativa Krispy" loading="lazy" style="--i:2" />
       <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-gastronomia_corporativo02_resultado.webp" alt="Gastronomia corporativa Krispy" loading="lazy" style="--i:3" />
       <img src="https://media.dmove.com.br/clients/krispy/photos/carrossel-gastronomia_corporativo01_resultado.webp" alt="Gastronomia corporativa Krispy" loading="lazy" style="--i:4" />
     </div>
-    <div data-reveal class="r-pad-inner" style="background: #faf5ef; border-left: 4px solid #A27D28; padding: 84px 72px; display: flex; flex-direction: column; justify-content: center;">
+    <div data-reveal class="r-pad-inner" style="background: #faf5ef; border-left: 4px solid #A27D28; padding: 84px 72px; display: flex; flex-direction: column; justify-content: center; order: 1;">
       <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 22px; display: block; font-weight: 600;">Gastronomia</span>
       <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.6vw, 42px); font-weight: 400; color: #2f1d13; line-height: 1.22; margin-bottom: 28px; letter-spacing: -0.2px;">Uma experiência gastronômica<br /><span style="font-weight: 500; color: #A27D28;">preparada para surpreender</span></h2>
       <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300; margin-bottom: 28px;">Do coffee break ao almoço executivo, do churrasco à feijoada, nossos cardápios são preparados para atender diferentes estilos de eventos corporativos, sempre com qualidade, sabor e excelente apresentação.</p>
@@ -239,10 +239,10 @@ import '../styles/corporativo.css';
     <div data-reveal class="r-pad-inner" style="background: #faf5ef; border-right: 4px solid #A27D28; padding: 84px 72px; display: flex; flex-direction: column; justify-content: center; order: 1;">
       <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 22px; display: block; font-weight: 600;">Confraternizações</span>
       <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.6vw, 42px); font-weight: 400; color: #2f1d13; line-height: 1.22; margin-bottom: 28px; letter-spacing: -0.2px;">O espaço ideal para celebrar<br /><span style="font-weight: 500; color: #A27D28;">pessoas e conquistas</span></h2>
-      <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300; margin-bottom: 24px;">Nem todo evento corporativo acontece em uma sala de reunião. O Krispy também é o lugar ideal para confraternizações descontraídas, happy hours, churrascos corporativos e feijoadas empresariais.</p>
+      <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300; margin-bottom: 24px;">Nem todo evento corporativo acontece em uma sala de reunião. O Krispy também é o lugar ideal para <strong style="font-weight: 600; color: #2f1d13;">confraternizações descontraídas, happy hours, churrascos corporativos e feijoadas empresariais.</strong></p>
       <p style="font-size: 16px; line-height: 1.9; color: rgba(47, 29, 19, 0.7); font-weight: 300;">Com gastronomia própria, ambiente confortável e uma equipe preparada para cuidar de todos os detalhes, sua empresa cria momentos de integração que valorizam colaboradores, clientes e parceiros.</p>
     </div>
-    <div class="r-media" style="background: #2f1d13; min-height: 480px; position: relative; overflow: hidden; order: 2;">
+    <div class="r-media happy-corp__media" style="background: #2f1d13; min-height: 480px; position: relative; overflow: hidden; order: 2;">
       <img src="https://media.dmove.com.br/clients/krispy/photos/happy-hour_corporativo_resultado.webp" alt="Happy hour e feijoada corporativa — Krispy Buffet" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
     </div>
   </section>
@@ -391,7 +391,7 @@ import '../styles/corporativo.css';
   <!-- ── GALERIA ───────────────────────────────────────────────────── -->
   <div id="galeria" data-reveal class="r-sec" style="background: #ffffff; text-align: center; padding: 104px 60px 48px; scroll-margin-top: 80px;">
     <span style="font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A27D28; margin-bottom: 18px; display: block; font-weight: 600;">Galeria</span>
-    <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.8vw, 44px); font-weight: 400; color: #2f1d13; line-height: 1.2; letter-spacing: -0.2px;">Conheça o espaço<br class="br-m" />onde sua empresa<br /><span style="font-weight: 500; color: #A27D28;">pode realizar<br class="br-m" />grandes encontros</span></h2>
+    <h2 style="font-family: Georgia, serif; font-size: clamp(28px, 2.8vw, 44px); font-weight: 400; color: #2f1d13; line-height: 1.2; letter-spacing: -0.2px;">Conheça o espaço<br class="br-m" />onde sua empresa<br /><span style="font-weight: 500; color: #A27D28;">pode realizar <br class="br-m" />grandes encontros</span></h2>
   </div>
   <div class="r-galeria" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px;">
     <div style="overflow: hidden; aspect-ratio: 1/1;"><img src="https://media.dmove.com.br/clients/krispy/photos/galeria_corporativo01_resultado.webp" alt="Evento corporativo Krispy" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>

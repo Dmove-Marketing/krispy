@@ -115,7 +115,7 @@
   }
 
   // ── Marquee carousels (Experiência / Parceiros) ─────────────────────
-  function initMarquee(carouselId, trackId, speedDesktop, speedMobile, visibleMobile) {
+  function initMarquee(carouselId, trackId, speedDesktop, speedMobile, visibleMobile, visibleTablet, visibleDesktop) {
     const carousel = document.getElementById(carouselId);
     const track = document.getElementById(trackId);
     if (!carousel || !track) return;
@@ -124,11 +124,13 @@
     const SPEED = window.innerWidth < 600 ? speedMobile : speedDesktop;
     const originals = Array.from(track.children);
     const MOBILE_VISIBLE = visibleMobile || 1;
+    const TABLET_VISIBLE = visibleTablet || 2;
+    const DESKTOP_VISIBLE = visibleDesktop || 3;
 
     originals.forEach((s) => track.appendChild(s.cloneNode(true)));
 
     function getVisible() {
-      return window.innerWidth < 600 ? MOBILE_VISIBLE : window.innerWidth < 900 ? 2 : 3;
+      return window.innerWidth < 600 ? MOBILE_VISIBLE : window.innerWidth < 900 ? TABLET_VISIBLE : DESKTOP_VISIBLE;
     }
 
     function setWidths() {
@@ -174,8 +176,8 @@
     window.addEventListener('resize', () => { setWidths(); x = 0; });
   }
 
-  initMarquee('exp-carousel', 'exp-track', 0.8, 1.4, 1);
-  initMarquee('partners-carousel', 'partners-track', 0.6, 1.1, 2);
+  initMarquee('exp-carousel', 'exp-track', 0.8, 1.4, 1, 2, 3);
+  initMarquee('partners-carousel', 'partners-track', 0.6, 1.1, 2, 4, 6);
 
   // ── Testimonials carousel ──────────────────────────────────────────
   if (depTrack) {

@@ -369,7 +369,7 @@ html{scroll-behavior:smooth;overflow-x:hidden}
   aspect-ratio: 3 / 4;
 }
 .partner-slide {
-  width: calc((100% - 48px) / 3);
+  width: calc((100% - 120px) / 6);
   aspect-ratio: 1 / 1;
 }
 
@@ -378,7 +378,7 @@ html{scroll-behavior:smooth;overflow-x:hidden}
     width: calc((100% - 3px) / 2);
   }
   .partner-slide {
-    width: calc((100% - 24px) / 2);
+    width: calc((100% - 72px) / 4);
   }
 }
 

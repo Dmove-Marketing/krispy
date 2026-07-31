@@ -14,6 +14,6 @@ export default defineConfig({
 
   // Dev server
   server: {
-    port: 4321,
+    port: 4322,
   },
 });

@@ -1,3 +1,5 @@
+import { getPageSource, buildTrackingFields } from './lead-payload';
+
 const FIELD_LABELS: Record<string, string> = {
   nome:        'Nome',
   telefone:    'WhatsApp',
@@ -7,12 +9,6 @@ const FIELD_LABELS: Record<string, string> = {
   tipo_evento: 'Tipo de evento',
   mensagem:    'Mensagem',
 };
-
-function buildFonte(_tracking: Record<string, string>): string {
-  const slug = window.location.pathname.replace(/^\/+|\/+$/g, '') || 'home';
-  const query = window.location.search;
-  return `Landing page/${slug}${query}`;
-}
 
 function validateForm(form: HTMLFormElement): boolean {
   let valid = true;
@@ -94,13 +90,15 @@ export function initForms() {
 
       const payload: Record<string, string> = {
         ...data,
-        'Fonte': buildFonte(tracking),
+        'Fonte': getPageSource(window.location.pathname),
         'Data': dateFmt,
         'Horário': timeFmt,
         'URL da página': window.location.href,
         'Agente de usuário': navigator.userAgent,
         'form_id': formId,
         'form_name': formId,
+        // UTMs/click IDs separados + origem (Meta, Google, ... ou Orgânico) para a integração com o Voe
+        ...buildTrackingFields(tracking),
       };
 
       try {

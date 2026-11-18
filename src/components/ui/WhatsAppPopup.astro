@@ -210,14 +210,9 @@ const cleanPhone = phone.replace(/\D/g, '');
   import flatpickr from 'flatpickr';
   import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
   import 'flatpickr/dist/flatpickr.min.css';
+  import { getPageSource, buildTrackingFields } from '../../scripts/lead-payload';
 
   flatpickr.localize(Portuguese);
-
-  function buildFonte(_tracking: Record<string, string>): string {
-    const slug = window.location.pathname.replace(/^\/+|\/+$/g, '') || 'home';
-    const query = window.location.search;
-    return `Landing page/${slug}${query}`;
-  }
 
   function applyPhoneMask(input: HTMLInputElement) {
     input.addEventListener('input', () => {
@@ -401,13 +396,15 @@ const cleanPhone = phone.replace(/\D/g, '');
         'Data do evento': dataV,
         'Convidados':    convV,
         ...(budgetV ? { 'Budget': budgetV } : {}),
-        'Fonte':         buildFonte(tracking),
+        'Fonte':         getPageSource(window.location.pathname),
         'Data':          now.toLocaleDateString('pt-BR'),
         'Horário':       now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', hour12: false }),
         'URL da página': window.location.href,
         'Agente de usuário': navigator.userAgent,
         'form_id':   formId,
         'form_name': formId,
+        // UTMs/click IDs separados + origem (Meta, Google, ... ou Orgânico) para a integração com o Voe
+        ...buildTrackingFields(tracking),
       };
 
       // Fire and forget to n8n
